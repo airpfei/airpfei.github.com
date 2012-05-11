@@ -4,7 +4,7 @@
   <title><![CDATA[Blog Of Peng Fei]]></title>
   <link href="http://airpfei.github.com/atom.xml" rel="self"/>
   <link href="http://airpfei.github.com/"/>
-  <updated>2012-05-12T03:07:23+08:00</updated>
+  <updated>2012-05-12T03:25:54+08:00</updated>
   <id>http://airpfei.github.com/</id>
   <author>
     <name><![CDATA[Peng Fei]]></name>
@@ -14,19 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Hello World]]></title>
+    <title type="html"><![CDATA[hello, world]]></title>
     <link href="http://airpfei.github.com/blog/2012/05/12/hello-world/"/>
-    <updated>2012-05-12T00:00:00+08:00</updated>
+    <updated>2012-05-12T02:47:00+08:00</updated>
     <id>http://airpfei.github.com/blog/2012/05/12/hello-world</id>
-    <content type="html"><![CDATA[<p>﻿&#8212;
-layout: post
-title: &#8220;hello, world&#8221;
-date: 2012-05-12 02:47
-comments: true</p>
-
-<h2>categories: </h2>
-
-<p>hello, world</p>
+    <content type="html"><![CDATA[<p>hello, world</p>
 
 <p>折腾一晚上 octopress 终于有点成效了！</p>
 ]]></content>
