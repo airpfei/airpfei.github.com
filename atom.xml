@@ -1,229 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Blog Of Peng Fei</title>
-  <meta name="author" content="Peng Fei">
-
-  
-  <meta name="description" content="hello, world 折腾一晚上 octopress 终于有点成效了！
-">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://airpfei.github.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Blog Of Peng Fei" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-25271760-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Blog Of Peng Fei</a></h1>
-  
-    <h2>A blogging framework for hackers</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:airpfei.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[Blog Of Peng Fei]]></title>
+  <link href="http://airpfei.github.com/atom.xml" rel="self"/>
+  <link href="http://airpfei.github.com/"/>
+  <updated>2012-05-13T23:16:51+08:00</updated>
+  <id>http://airpfei.github.com/</id>
+  <author>
+    <name><![CDATA[Peng Fei]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2012/05/12/hello-world/">Hello, World</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2012-05-12T02:47:00+08:00" pubdate data-updated="true">May 12<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>hello, world</p>
+  <entry>
+    <title type="html"><![CDATA[hello, world]]></title>
+    <link href="http://airpfei.github.com/blog/2012/05/12/hello-world/"/>
+    <updated>2012-05-12T02:47:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2012/05/12/hello-world</id>
+    <content type="html"><![CDATA[<p>hello, world</p>
 
 <p>折腾一晚上 octopress 终于有点成效了！</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/15/plan/">Read Some Source Code in the Next Few Months</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-15T00:00:00+08:00" pubdate data-updated="true">Mar 15<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>modern c++ design let me know c++ template can do much more, although i can&#8217;t complete understand. i need read it again.
+  <entry>
+    <title type="html"><![CDATA[read some source code in the next few months]]></title>
+    <link href="http://airpfei.github.com/blog/2012/03/15/plan/"/>
+    <updated>2012-03-15T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2012/03/15/plan</id>
+    <content type="html"><![CDATA[<p>modern c++ design let me know c++ template can do much more, although i can&#8217;t complete understand. i need read it again.
 loki, chrome, linux kernel i really want to read.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/10/goodbye-c-sharp/">Goodbye C Sharp</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-10T00:00:00+08:00" pubdate data-updated="true">Dec 10<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><span style="padding-left: 30px;">公司一款产品的最后的一个版本即将发布，以后在这款产品上只是一些例行的维护，不会再有什么重大的变化。这是一套以.net框架为基础的产品，由于性能问题，ui的掌控的问题使得公司最终放弃.net框架。</span>
+  <entry>
+    <title type="html"><![CDATA[Goodbye C Sharp]]></title>
+    <link href="http://airpfei.github.com/blog/2011/12/10/goodbye-c-sharp/"/>
+    <updated>2011-12-10T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/12/10/goodbye-c-sharp</id>
+    <content type="html"><![CDATA[<p><span style="padding-left: 30px;">公司一款产品的最后的一个版本即将发布，以后在这款产品上只是一些例行的维护，不会再有什么重大的变化。这是一套以.net框架为基础的产品，由于性能问题，ui的掌控的问题使得公司最终放弃.net框架。</span>
 <span style="padding-left: 30px;">我从2009年8月开始接触.net，一边学习，一边实践。经过2年C#编程，也对C#及.net框架有一些了解。先先说一下有点吧，那就是简单。.net把对字符串、Window、network的操作变得非常简单。但是由于.net的封装，使得一些底层的操作非常困难。例如，给Window设置一个Class，至今我还不知道如何设置。又如WinForm原生控件的定制性很差，不能满足一些常用的需求，有时必须使用Win32Api来完成。还有就是.net本身的性能问题，使得很多商业软件放弃使用。</span>
 <span style="padding-left: 30px;">当然，在这两年里，也接触了一些.net框架中比较新的东西，如WPF。不得不承认WPF把UI实现变得很容易。但WPF对设备性能的要求，对.net版本的要求使得许多商业软件放弃使用。要知道在Win xp占有率达到75%的天朝，.net3.5是多么遥不可及！</span>
 <span>对一些企业内部的管理软件，.net还是很适合的，节约开发成本。如果开发者对Windows的内存没有很好的掌控力，使用C/C++有可能适得其反。.net的GC使得开发者不用花很多精力放在内存管理上。觉得WinPhone可能会让C#上升到一个新的高度</span>
 <span style="padding-left: 30px;">感觉silverlight的死期不远了，html5使得silverlight没有什么存在的价值了。</span>
 <span style="padding-left: 30px;">即将告别C#投向C++阵营，还是很感谢C#的，毕竟之前我是用它混饭的。一直很想使用C++编程，因为这是一门公认的复杂语言，也应为我能更近距离的接触操作系统。</span>
 <span style="padding-left: 30px;">白天折腾了很久mp4box，学习到一点C++的调试技巧。在link错误时，编译器表错为<em>function not found，开始以为</em>function是函数名，结果搜了半天没找到，最后才发现“_”不是函数名的一部分。</span></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/09/learn-windows-progamme-8/">Windows via C/c++ 笔记 （八）</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-09T00:00:00+08:00" pubdate data-updated="true">Dec 9<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>第19章 DLL基础
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （八）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/12/09/learn-windows-progamme-8/"/>
+    <updated>2011-12-09T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/12/09/learn-windows-progamme-8</id>
+    <content type="html"><![CDATA[<p>第19章 DLL基础
 <span style="padding-left: 30px;">一般在dll中分配的内存，都需要通过dll释放</span>
 <span style="padding-left: 30px;">DLL若连接的是静态版本，那么DLL的代码里面就会有一份free和malloc的代码，若EXE也使用的是静态版本的C/C++运行库，那么也会有另一份代码。当然你使用DLL代码里申请的内存不能在EXE的free代码中释放。原因是因为有两个不通的堆管理，在EXE中查不到相应申请的内存，自然释放会失败。</span>
 <span style="padding-left: 30px;">导出函数或变量，链接器生成lib文件。</span>
@@ -257,42 +88,15 @@ loki, chrome, linux kernel i really want to read.</p>
 <span style="padding-left: 30px;"><strong>try中使用return、goto、longjump，</strong>finally中的代码也会被执行。</span>
 <span style="padding-left: 30px;"><strong>try, </strong>finally 框架会使finally中的代码执行</span>
 <span style="padding-left: 30px;">__leave关键字会使执行代码跳转到try块的结尾。</span></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/30/learn-windows-progamme-7/">Windows via C/c++ 笔记 （七）</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-30T00:00:00+08:00" pubdate data-updated="true">Nov 30<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>第13章 Windows内存体系结构
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （七）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/30/learn-windows-progamme-7/"/>
+    <updated>2011-11-30T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/30/learn-windows-progamme-7</id>
+    <content type="html"><![CDATA[<p>第13章 Windows内存体系结构
 <span style="padding-left: 30px;">need reread</span>
 <span style="padding-left: 30px;">空指针赋值分区、用户模式分区、64KB禁入分区、内核模式分区</span>
 <span style="padding-left: 30px;">32位App运行在64位Windows分配的0x00000000&#8217;7FFFFFFF以下的地址空间，64位App默认在0x00000000&#8217;80000000以上的地址空间</span>
@@ -315,46 +119,34 @@ loki, chrome, linux kernel i really want to read.</p>
 <p>第16章 线程栈
 <span style="padding-left: 30px;">SetThreadStackGuarante</span></p>
 
-</div>
+<!--more-->
+
+
+<p>第17章 内存映射文件
+<span style="padding-left: 30px;">映射到内存的EXE和DLL</span>
+<span style="padding-left: 30px;">一个应用程序的多个实例共享内存中的代码和数据，避免一个实例修改全局变量导致错误，系统通过内存管理的写时复制特性防止此发生。数据写写入时，系统会为其开辟一块新的内存。</span>
+<span style="padding-left: 30px;">#pragma data_seg(&#8220;name&#8221;) 用来创建名为&#8221;name&#8221;的段，该段内的数据必须初始化，否则数据不属于该段</span>
+<span style="padding-left: 30px;">allocate允许将未初始化的数据放入莫个段中</span>
+<span style="padding-left: 30px;">为数据创建单独的段是为了多个实例共享数据。编译选项/SECTION:name,attributes。#pragma comment(linker, &#8220;SECTION:Shared, RWS&#8221;)</span>
+<span style="padding-left: 30px;">_tscrev颠倒文件数据(0结尾)</span>
+<span style="padding-left: 30px;">CreateFile(失败为NULL或INVALID_HANDLE_VALUE) &#8211;> CreateFileMapping (告诉系统映射文件需要多大的物理内存) &#8211;> MapViewOfFile &#8211;> UnmapViewOfFile &#8211;> FlushViewOfFile &#8211;> CloseHandle</span>
+<span style="padding-left: 30px;">MoveMemory</span>
+<span style="padding-left: 30px;">只读文件适合用于内存映射文件。可写文件不适合(无法保证一致性)，应独占文件(dwShareMode = 0)。</span>
+<span style="padding-left: 30px;">以页交换文件为后备存储器的内存映射文件：CreateFileMapping时hFile = INVALID_HANDLE_VALUE</span>
+<span style="padding-left: 30px;">稀疏调拨的内存映射文件：CreateMapping时传入SEC_RESERVE标志，系统不会从页交换文件中调拨物理存储器。然后使用VirtualAlloc调拨物理内存</span>
+第18章 堆
+<span style="padding-left: 30px;">GetProcessHeap获取进程默认堆句柄。默认堆只允许一个线程访问。</span>
+<span style="padding-left: 30px;">HeapCreate、HeapAlloc、HeapSize、HeapFree、HeapDestroy</span>
+<span style="padding-left: 30px;">GetProcessHeaps、HeapValidate、HeapCompact、HeapLock、HeapUnlock、HeapWalk</span></p>
+]]></content>
+  </entry>
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/30/learn-windows-progamme-7/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/24/learn-windows-progamme-6/">Windows via C/c++ 笔记 （六）</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-24T00:00:00+08:00" pubdate data-updated="true">Nov 24<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>第10章 同步设备I/O与异步设备I/O
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （六）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/24/learn-windows-progamme-6/"/>
+    <updated>2011-11-24T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/24/learn-windows-progamme-6</id>
+    <content type="html"><![CDATA[<p>第10章 同步设备I/O与异步设备I/O
 <span style="padding-left: 30px;">打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、CreateConsoleScreenBuffer,GetFileType</span>
 <span style="padding-left: 30px;">CreateFile 的高速缓存标志：FILE_FLAG_NO_BUFFERING(GetDiskFreeSpace扇区的整数倍)，FILE_FLAG_SEQUENTIAL_SCAN，FILE_FLAG_RANDOM_ACCESS，FILE_FLAG_WRITE_THROUGH</span>
 <span style="padding-left: 30px;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span>
@@ -367,46 +159,28 @@ Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Mo
 Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module
 <span style="padding-left: 30px;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
 
-</div>
+<!--more-->
+
+
+<p>第11章 Windows线程池
+<span style="padding-left: 30px;">异步调用函数：CreateThreadpoolWork、TrySubmitThreadpoolWork、SubmitThreadpoolWork、WaitForThreadpoolWorkCallbacks、CloseThreadpoolWork</span>
+<span style="padding-left: 30px;">每隔一段时间调用函数：CreateThreadpoolTimer、SetThreadpoolTimer、WaitForThreadpoolTimerCallbacks、IsThreadpoolTimerSet、CloseThreadpoolTimer</span>
+<span style="padding-left: 30px;">内核对象出发时调用函数：CreateThreadpoolWait、SetThreadpoolWait、CloseThreadpoolWait</span>
+<span style="padding-left: 30px;">异步I/O请求完成时调用函数：CreateThreadpoolIo、StartThreadpoolIo、CancelThreadpoolIo、CloseThreadpoolIo</span>
+<span style="padding-left: 30px;">the default thread pool has the minimum number of threads set to 1 and its maximum number of threads set to 500</span></p>
+
+<p>第12章 纤程
+<span style="padding-left: 30px;">尽量避免使用纤程</span>
+<span style="padding-left: 30px;">ConvertThreadToFiber(Ex)、CreateFiber(Ex)、SwitchToFiber、DeleteFiber、GetCurrentFiber、GetFiberData</span></p>
+]]></content>
+  </entry>
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/24/learn-windows-progamme-6/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/20/learn-windows-progamme-5/">Windows via C/c++ 笔记 （五）</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-20T00:00:00+08:00" pubdate data-updated="true">Nov 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>第8章：用户模式下的线程同步
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （五）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/20/learn-windows-progamme-5/"/>
+    <updated>2011-11-20T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/20/learn-windows-progamme-5</id>
+    <content type="html"><![CDATA[<p>第8章：用户模式下的线程同步
 <span style="padding-left: 30px;">Interlocked系列函数，原子操作，使用时保证传给函数的变量是对齐的，否则可能会失效。_aligned_malloc</span>
 <span style="padding-left: 30px;">当一个CPU修改了Cache中一个字节时，其他收到通知，并使自己的Cache作废。应该把只读（不经常读）与可读写的数据分别存放。GetLogicalProcessorInformation,__declspec(align(#))对齐</span>
 <span style="padding-left: 30px;">volatile，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。指针不受编译器的优化影响，必须从内存读取。</span>
@@ -521,46 +295,30 @@ Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Pyt
 
 
 
-</div>
+<!--more-->
+
+
+<p>第9章：用内核对象进行线程同步</p>
+
+<p><span style="padding-left: 30px;">WaitForSingleObject、WaitForMultipleObjects，内核对象被触发返回。等待成功引起的副作用，由于事件对象触发时，在返回WAIT_OBJECT_0前会使对象变为非触发状态</span>
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+&lt;span style="padding-left: 30px;"&gt;hAutoResetEvent1先触发，hAutoResetEvent2触发，两线程的一个检测到触发，系统把两个事件对象都设为未触发&lt;/span&gt;
+&lt;span style="padding-left: 30px;"&gt;事件内核对象：CreateEvent(Ex)、SetEvent、ResetEvent、PulseEvent(不经常使用)、OpenEvent(DuplicateHandle)。使用自动重置的对象，当对象被触发，系统只会让次要线程中的一个变为可调度状态，所以要在每个次要线程调用时使用SetEvent，否则其他次要线程将等待。&lt;/span&gt;
+&lt;span style="padding-left: 30px;"&gt;可等待的计时器内核对象：CreateWaitableTimer、SetWaitableTimer、CancelWaitableTimer、OpenWaitableTimer&lt;/span&gt;
+Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module
+<span style="padding-left: 30px;">信号量内核对象：CreateSemaphore、OpenSemaphore、ReleaseSemaphore</span>
+<span style="padding-left: 30px;">互斥量内核对象：CreateMutex、OpenMutex、RleaseMutex</span>
+<span style="padding-left: 30px;">WaitForInputIdle、MsgWaitForMultipleObjects(Ex)(用户界面相关的线程使用)、WaitForDebugEvent、SignalObjectAndWait(通过原子操作让一个内核对象等待另一个内核对象)</span>
+<span style="padding-left: 30px;">等待链遍历API检测死锁：ParseThreads、OpenThreadWaitChainSession、GetThreadChain</span></p>
+]]></content>
+  </entry>
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/20/learn-windows-progamme-5/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/17/learn-windows-progamme-4/">Windows via C/c++ 笔记 （四）</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-17T00:00:00+08:00" pubdate data-updated="true">Nov 17<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>第6章：线程基础
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （四）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/17/learn-windows-progamme-4/"/>
+    <updated>2011-11-17T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/17/learn-windows-progamme-4</id>
+    <content type="html"><![CDATA[<p>第6章：线程基础
 <span style="padding-left: 30px;">线程由两部分组成：内核对象和线程栈</span>
 <span style="padding-left: 30px;">线程共享地址空间、共享内核对象句柄，因为句柄表是针对进程的</span>
 <span style="padding-left: 30px;">多线程时可以采用static变量防止对象被销毁，但这会使函数不可重入。（不能创建两个线程执行同一个函数，因为两个线程共享同一个静态变量）</span>
@@ -568,46 +326,26 @@ Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Pyt
 <span style="padding-left: 30px;">使用<em>beginthreadex而不要用CreateThread，CreateThread不是线程安全的，ExitThread没用释放</em>tiddata(<em>endthreadex释放了)。</em>endthread在调用ExitThread前会调用CloseHandle，而_endthreadex不会。</span>
 <span style="padding-left: 30px;">GetCurrentProcess、GetCurrentThread、GetCurrentProcessId、GetCurrentThreadId、DuplicateHandle用于把进程的伪句柄转换为真正的进程句柄</span></p>
 
-</div>
+<!--more-->
+
+
+<p>第7章：线程调度、优先级和关联性
+<span style="padding-left: 30px;">ResumeThread、SuspendThread，当挂起数为0时，线程可调度</span>
+<span style="padding-left: 30px;">WaitForDebugEvent挂起进程中所有线程，直至ContinueDebugEvent</span>
+<span style="padding-left: 30px;">SwitchToThread与Sleep(0)类似，SwitchToThread允许执行低优先级的线程而Sleep不可以</span>
+<span style="padding-left: 30px;">GetTickCount64、GetThreadTimes、GetProcessTimes、QueryThreadCycleTime、QueryProcessCycleTime、ReadTimeStampCounter、QueryPerformanceFrequency、QueryPerformanceCounter</span>
+<span style="padding-left: 30px;">调用GetThreadContext前应调用SuspendThread否则可能会导致Context信息不一致</span>
+<span style="padding-left: 30px;">SetPriorityClass、SetProcessPriorityBoost、SetThreadPriorityBoost</span>
+<span style="padding-left: 30px;">SetProcessAffinityMask、GetProcessAffinityMask、SetThreadIdealProcessor关联性</span></p>
+]]></content>
+  </entry>
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/17/learn-windows-progamme-4/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/15/learn-windows-progamme-3/">Windows via C/c++ 笔记 （三）</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-15T00:00:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>第4章：进程
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （三）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/15/learn-windows-progamme-3/"/>
+    <updated>2011-11-15T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/15/learn-windows-progamme-3</id>
+    <content type="html"><![CDATA[<p>第4章：进程
 <span style="padding-left: 30px;">进程由内核对象和地址空间组成</span>
 <span style="padding-left: 30px;">(w)WinMain的hInstanceExe参数是可执行文件的映像加载到内存的基址；</span>
 <span style="padding-left: 30px;">HMODULE和HINSTANCE是一样的，由于win16导致函数名不同；</span>
@@ -620,135 +358,102 @@ Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Mo
 &lt;span style="padding-left: 30px;"&gt;GetCurrrentDirectory、SetCurrentDirectory、GetFullPathName&lt;/span&gt;
 Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
-</div>
+<!--more-->
+
+
+<br />
+
+
+<p>第5章：作业
+<span style="padding-left: 30px;">Windows提供了作业（Job）内核对象，将进城组合在一起并创建一个“沙箱”来限制进程</span>
+<span style="padding-left: 30px;">如果未定义manifest或debug，windows资源管理器会将进程同“PCA”前缀的作业关联，可以从cmd启动进程</span>
+<span style="padding-left: 30px;">CreateJobObject、OpenJobObject、UserHandleGrantAccess、SetInformationJobObject、AssignProcessToJobObject、TerminateJobObject、QueryInformationJobObject、GetQueuedCompletionStatus</span></p>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[java nio demo]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/13/java-nio-demo/"/>
+    <updated>2011-11-13T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/13/java-nio-demo</id>
+    <content type="html"><![CDATA[<p><span style="padding-left: 30px;">J2SE1.4中引入了新I/O库(NIO)来解决这个问题。NIO使用面向缓冲(buffer)的模型。这就是说，NIO主要处理大块的数据。这就避免了利用流模型处理所引起的问题，在有可能的情况下，它甚至可以为了得到最大的吞吐量而使用系统级的工具。</span></p>
+
+<!--more-->
+
+
+<p>Liquid error: Could not open library &#8216;.dll&#8217;: The specified module could not be found.</p>
+]]></content>
+  </entry>
   
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/15/learn-windows-progamme-3/">Read on &rarr;</a>
-    </footer>
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （二）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/12/learn-windows-progamme-2/"/>
+    <updated>2011-11-12T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/12/learn-windows-progamme-2</id>
+    <content type="html"><![CDATA[<p>第3章：内核对象
+<span style="padding-left: 30px;">每个内核对象是一个内存块，由操作系统分配，并只能由操作系统内核访问。</span>
+<span style="padding-left: 30px;">调用函数创建内核对象时，调用失败句柄值通常为NULL，有几个函数返回值为-1 INVALID_HANDLE_VALUE。用于创建内核对象的函数检查返回值时要谨慎。</span>
+<span style="padding-left: 30px;">调用CloseHandle关闭内核对象时，应将内核对象的变量设为NULL。 </span>
+<span style="padding-left: 30px;">Creat<em>，Open</em></span>
+<span style="padding-left: 30px;">共享内核对象：对象句柄继承，为对象命名，复制对象句柄</span>
+<span style="padding-left: 30px;">sample为专有命名空间的单实例进程,03-Singleton</span></p>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （一）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/10/learn-windows-progamme-1/"/>
+    <updated>2011-11-10T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/10/learn-windows-progamme-1</id>
+    <content type="html"><![CDATA[<p>第1章：错误处理
+<span style="padding-left: 30px;">调用GetLastError() 查看错误信息；</span>
+<span style="padding-left: 30px;">$err,hr 在watch窗口查看错误信息</span></p>
 
-
-    </article>
+<p>第2章：字符和字符串的处理
+<span style="padding-left: 30px;">字符串前的“L”告诉编译器该字符串为Unicode字符串；</span>
+<span style="padding-left: 30px;">windows内部由Unicode字符构建，优先使用Unicode编码；</span>
+<span style="padding-left: 30px;">CreateWindowExW (wide)接受Unicode编码，CreateWindowExA接受ANSI编码</span>
+<span style="padding-left: 30px;">使用CompareStringOrdinal、CompareString(Ex)比较字符串；</span>
+<span style="padding-left: 30px;">使用MultiByteToWideChar、WideCharToMultiByte进行Unicode、ANSI编码转换</span></p>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[HTC Desire s (G12) ROOT]]></title>
+    <link href="http://airpfei.github.com/blog/2011/08/23/root-g12/"/>
+    <updated>2011-08-23T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/08/23/root-g12</id>
+    <content type="html"><![CDATA[<p>0、将<a href="http://lossbot.com/file/su-2.3.6.3-efgh-signed.zip">su-2.3.6.3-efgh-signed.zip</a>拷贝到手机sd卡中；</p>
+
+<p>1、从<a href="http://revolutionary.io/" target="_blank">http://revolutionary.io/</a> 下载Revolutionary，也可以从<a title="Revolutionary" href="http://lossbot.com/file/revolutionary-0.4pre4.zip" target="_blank">这里下载</a>；</p>
+
+<p>2、<a title="adb" href="http://lossbot.com/file/adb.rar" target="_blank">下载ADB</a>(android sdk中的)，同时确保手机上的USB调试(Debug USB)开关打开，手机连接模式为“只充电”；</p>
+
+<p>3、<a title="fre3vo" href="http://lossbot.com/file/fre3vo.zip" target="_blank">下载fre3vo</a>；</p>
+
+<p>开始root</p>
+
+<!--more-->
+
+
+<p>1）在cmd中输入：adb push fre3vo /data/local/tmp                     （adb为第二步中下载的文件解压后）</p>
+
+<p>2）adb shell chmod 777 /data/local/tmp/fre3vo</p>
+
+<p>3）adb shell  （这时cmd中出现$符号，证明还没有得到root权限）</p>
+
+<p>4）继续3，输入/data/local/tmp/fre3vo -debug -start FAA90000 -end FFFFFFFF  （这时将从$符号中跳出来）</p>
+
+<p>5）adb shell  （这时将出现#，证明root成功）</p>
+
+<p>4）运行第一步下载的revolutionary.exe会生成一个序列号，到<a href="http://revolutionary.io/">http://revolutionary.io/</a>上获取code；</p>
+
+<p>5）完成上一步后手机会重启，进入revolutionary模式，选择第0步下载的文件，可以安装root权限的工具，当然这时也可以开始刷rom了，推荐miui的rom(<a href="http://www.miui.com/forum.php?mod=viewthread&amp;tid=4437&amp;page=1">http://www.miui.com/forum.php?mod=viewthread&amp;tid=4437&amp;page=1</a>)</p>
+
+<p>。。。。。。</p>
+
+<p>revolutionary模式进入方法是，先拔电池，音量下 + 电源键 长按就可以进入</p>
+]]></content>
+  </entry>
   
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/13/java-nio-demo/">Java Nio Demo</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-13T00:00:00+08:00" pubdate data-updated="true">Nov 13<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><span style="padding-left: 30px;">J2SE1.4中引入了新I/O库(NIO)来解决这个问题。NIO使用面向缓冲(buffer)的模型。这就是说，NIO主要处理大块的数据。这就避免了利用流模型处理所引起的问题，在有可能的情况下，它甚至可以为了得到最大的吞吐量而使用系统级的工具。</span></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/11/13/java-nio-demo/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2012/05/12/hello-world/">hello, world</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/03/15/plan/">read some source code in the next few months</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/12/10/goodbye-c-sharp/">Goodbye C Sharp</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/12/09/learn-windows-progamme-8/">windows via c/c++ 笔记 （八）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/11/30/learn-windows-progamme-7/">windows via c/c++ 笔记 （七）</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Peng Fei -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'airpfei';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
+</feed>

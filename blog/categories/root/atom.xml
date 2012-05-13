@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: root | Blog Of Peng Fei]]></title>
+  <link href="http://airpfei.github.com/blog/categories/root/atom.xml" rel="self"/>
+  <link href="http://airpfei.github.com/"/>
+  <updated>2012-05-13T23:16:51+08:00</updated>
+  <id>http://airpfei.github.com/</id>
+  <author>
+    <name><![CDATA[Peng Fei]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[HTC Desire s (G12) ROOT]]></title>
+    <link href="http://airpfei.github.com/blog/2011/08/23/root-g12/"/>
+    <updated>2011-08-23T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/08/23/root-g12</id>
+    <content type="html"><![CDATA[<p>0、将<a href="http://lossbot.com/file/su-2.3.6.3-efgh-signed.zip">su-2.3.6.3-efgh-signed.zip</a>拷贝到手机sd卡中；</p>
+
+<p>1、从<a href="http://revolutionary.io/" target="_blank">http://revolutionary.io/</a> 下载Revolutionary，也可以从<a title="Revolutionary" href="http://lossbot.com/file/revolutionary-0.4pre4.zip" target="_blank">这里下载</a>；</p>
+
+<p>2、<a title="adb" href="http://lossbot.com/file/adb.rar" target="_blank">下载ADB</a>(android sdk中的)，同时确保手机上的USB调试(Debug USB)开关打开，手机连接模式为“只充电”；</p>
+
+<p>3、<a title="fre3vo" href="http://lossbot.com/file/fre3vo.zip" target="_blank">下载fre3vo</a>；</p>
+
+<p>开始root</p>
+
+<!--more-->
+
+
+<p>1）在cmd中输入：adb push fre3vo /data/local/tmp                     （adb为第二步中下载的文件解压后）</p>
+
+<p>2）adb shell chmod 777 /data/local/tmp/fre3vo</p>
+
+<p>3）adb shell  （这时cmd中出现$符号，证明还没有得到root权限）</p>
+
+<p>4）继续3，输入/data/local/tmp/fre3vo -debug -start FAA90000 -end FFFFFFFF  （这时将从$符号中跳出来）</p>
+
+<p>5）adb shell  （这时将出现#，证明root成功）</p>
+
+<p>4）运行第一步下载的revolutionary.exe会生成一个序列号，到<a href="http://revolutionary.io/">http://revolutionary.io/</a>上获取code；</p>
+
+<p>5）完成上一步后手机会重启，进入revolutionary模式，选择第0步下载的文件，可以安装root权限的工具，当然这时也可以开始刷rom了，推荐miui的rom(<a href="http://www.miui.com/forum.php?mod=viewthread&amp;tid=4437&amp;page=1">http://www.miui.com/forum.php?mod=viewthread&amp;tid=4437&amp;page=1</a>)</p>
+
+<p>。。。。。。</p>
+
+<p>revolutionary模式进入方法是，先拔电池，音量下 + 电源键 长按就可以进入</p>
+]]></content>
+  </entry>
+  
+</feed>

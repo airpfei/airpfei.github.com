@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>HTC Desire s (G12) ROOT - Blog Of Peng Fei</title>
+  <meta name="author" content="Peng Fei">
+
+  
+  <meta name="description" content="0、将su-2.3.6.3-efgh-signed.zip拷贝到手机sd卡中； 1、从http://revolutionary.io/ 下载Revolutionary，也可以从这里下载； 2、下载ADB(android sdk中的)，同时确保手机上的USB调试(Debug USB)开关打开， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://airpfei.github.com/blog/2011/08/23/root-g12">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Blog Of Peng Fei" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25271760-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog Of Peng Fei</a></h1>
+  
+    <h2>A blogging framework for hackers</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:airpfei.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">HTC Desire S (G12) ROOT</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-23T00:00:00+08:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>0、将<a href="http://lossbot.com/file/su-2.3.6.3-efgh-signed.zip">su-2.3.6.3-efgh-signed.zip</a>拷贝到手机sd卡中；</p>
+
+<p>1、从<a href="http://revolutionary.io/" target="_blank">http://revolutionary.io/</a> 下载Revolutionary，也可以从<a title="Revolutionary" href="http://lossbot.com/file/revolutionary-0.4pre4.zip" target="_blank">这里下载</a>；</p>
+
+<p>2、<a title="adb" href="http://lossbot.com/file/adb.rar" target="_blank">下载ADB</a>(android sdk中的)，同时确保手机上的USB调试(Debug USB)开关打开，手机连接模式为“只充电”；</p>
+
+<p>3、<a title="fre3vo" href="http://lossbot.com/file/fre3vo.zip" target="_blank">下载fre3vo</a>；</p>
+
+<p>开始root</p>
+
+<!--more-->
+
+
+<p>1）在cmd中输入：adb push fre3vo /data/local/tmp                     （adb为第二步中下载的文件解压后）</p>
+
+<p>2）adb shell chmod 777 /data/local/tmp/fre3vo</p>
+
+<p>3）adb shell  （这时cmd中出现$符号，证明还没有得到root权限）</p>
+
+<p>4）继续3，输入/data/local/tmp/fre3vo -debug -start FAA90000 -end FFFFFFFF  （这时将从$符号中跳出来）</p>
+
+<p>5）adb shell  （这时将出现#，证明root成功）</p>
+
+<p>4）运行第一步下载的revolutionary.exe会生成一个序列号，到<a href="http://revolutionary.io/">http://revolutionary.io/</a>上获取code；</p>
+
+<p>5）完成上一步后手机会重启，进入revolutionary模式，选择第0步下载的文件，可以安装root权限的工具，当然这时也可以开始刷rom了，推荐miui的rom(<a href="http://www.miui.com/forum.php?mod=viewthread&amp;tid=4437&amp;page=1">http://www.miui.com/forum.php?mod=viewthread&amp;tid=4437&amp;page=1</a>)</p>
+
+<p>。。。。。。</p>
+
+<p>revolutionary模式进入方法是，先拔电池，音量下 + 电源键 长按就可以进入</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Peng Fei</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-23T00:00:00+08:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/root/'>root</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/11/10/learn-windows-progamme-1/" title="Next Post: windows via c/c++ 笔记 （一）">windows via c/c++ 笔记 （一） &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/12/hello-world/">hello, world</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/15/plan/">read some source code in the next few months</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/12/10/goodbye-c-sharp/">Goodbye C Sharp</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/12/09/learn-windows-progamme-8/">windows via c/c++ 笔记 （八）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/30/learn-windows-progamme-7/">windows via c/c++ 笔记 （七）</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Peng Fei -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'airpfei';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://airpfei.github.com/blog/2011/08/23/root-g12/';
+        var disqus_url = 'http://airpfei.github.com/blog/2011/08/23/root-g12/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

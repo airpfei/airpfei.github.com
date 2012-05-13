@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: windows | Blog Of Peng Fei]]></title>
+  <link href="http://airpfei.github.com/blog/categories/windows/atom.xml" rel="self"/>
+  <link href="http://airpfei.github.com/"/>
+  <updated>2012-05-13T23:16:51+08:00</updated>
+  <id>http://airpfei.github.com/</id>
+  <author>
+    <name><![CDATA[Peng Fei]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （八）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/12/09/learn-windows-progamme-8/"/>
+    <updated>2011-12-09T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/12/09/learn-windows-progamme-8</id>
+    <content type="html"><![CDATA[<p>第19章 DLL基础
+<span style="padding-left: 30px;">一般在dll中分配的内存，都需要通过dll释放</span>
+<span style="padding-left: 30px;">DLL若连接的是静态版本，那么DLL的代码里面就会有一份free和malloc的代码，若EXE也使用的是静态版本的C/C++运行库，那么也会有另一份代码。当然你使用DLL代码里申请的内存不能在EXE的free代码中释放。原因是因为有两个不通的堆管理，在EXE中查不到相应申请的内存，自然释放会失败。</span>
+<span style="padding-left: 30px;">导出函数或变量，链接器生成lib文件。</span>
+<span style="padding-left: 30px;">dumpbin -exports <em>.dll</span>
+<span style="padding-left: 30px;">dumpbin -imports </em>.exe</span>
+<span style="padding-left: 30px;">避免MS VC++的名字粉碎(Name Mangling)：.def文件EXPORTS段导出函数名；extern "C"；#pragma comment (linker, "/export:MyFunc=_MyFunc@8")</span>
+<span style="padding-left: 30px;">导入：<strong>declspec(dllimport)或使用extern</span>
+<span style="padding-left: 30px;">运行可执行模块：操作系统加载程序为进程创建虚拟地址空间，把可执行模块映射到进程的地址空间中。之后加载程序会检查可执行模块的导入段(不同版本的dll可能在这个步骤出问题)，对所需的DLL进行定位并将其映射到进程的地址空间中。</span>
+<span style="padding-left: 30px;">基址重定位和绑定可以加快应用程序初始化速度。</span>
+第20章 DLL高级技术
+<span style="padding-left: 30px;">LoadLibrary(Ex)、FreeLibrary、FreeLibraryAndExitThread、GetModuleHandle、GetModuleFileName</span>
+<span style="padding-left: 30px;">GetProcAddress</span>
+<span style="padding-left: 30px;">DllMain的序列化调用。DisableThreadLibraryCalls</span>
+<span style="padding-left: 30px;">延迟载入DLL：当我们的代码试图引用DLL包含的符号时载入DLL。加快初始化速度；解决老版本DLL没有一些函数的问题。</span>
+<span style="padding-left: 30px;">一个导出全局变量的DLL、Kernel32.dll无法延迟加载。不应在DllMain中调用延迟加载的函数。</span>
+<span style="padding-left: 30px;">VcppException延迟载入DLL异常处理，DelayLoadInfo</span>
+<span style="padding-left: 30px;">函数转发器：#pragma comment (linker, "/export:SomeFunc=Dllwork.SomeOtherFunc")</span>
+<span style="padding-left: 30px;">模块的基地址重定位，显著提高整个系统的性能。/FIXED不包含重定位段。</span>
+<span style="padding-left: 30px;">模块的绑定，提高性能，不必再对模块重新定位，不必查看导入函数的虚拟地址。</span>
+第21章 线程局部存储区
+<span style="padding-left: 30px;">动态TSL：TlsAlloc、TlsSetValue、TlsGetValue、TlsFree</span>
+<span style="padding-left: 30px;">静态TLS：</strong>declspec(thread)</span>
+第22章 DLL注入和API拦截
+<span style="padding-left: 30px;"><a href="http://www.codeproject.com/KB/system/inject2it.aspx" target="_blank">Demo</a></span>
+<span style="padding-left: 30px;">SetWindowLongPtr。从根本上将，DLL注入是目标进程中的一个线程调用LoadLibrary载入我们想要的DLL。</span>
+<span style="padding-left: 30px;">使用注册表注入DLL：只会映射到使用Use32.dll的进程中</span>
+<span style="padding-left: 30px;">使用Windows挂钩注入DLL：SetWindowsHookEx、UnhookWindowsHookEx。使用PostThreadMessage线程同步。</span>
+<span style="padding-left: 30px;">使用远程线程注入DLL：CreateRemoteThread、VirtualAllocEx、VirtualFreeEx、ReadProcessMemory、WriteProcessMemory</span></p>
+
+<p>结构化异常处理
+<span style="padding-left: 30px;"><strong>try中使用return、goto、longjump，</strong>finally中的代码也会被执行。</span>
+<span style="padding-left: 30px;"><strong>try, </strong>finally 框架会使finally中的代码执行</span>
+<span style="padding-left: 30px;">__leave关键字会使执行代码跳转到try块的结尾。</span></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （七）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/30/learn-windows-progamme-7/"/>
+    <updated>2011-11-30T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/30/learn-windows-progamme-7</id>
+    <content type="html"><![CDATA[<p>第13章 Windows内存体系结构
+<span style="padding-left: 30px;">need reread</span>
+<span style="padding-left: 30px;">空指针赋值分区、用户模式分区、64KB禁入分区、内核模式分区</span>
+<span style="padding-left: 30px;">32位App运行在64位Windows分配的0x00000000'7FFFFFFF以下的地址空间，64位App默认在0x00000000'80000000以上的地址空间</span>
+<span style="padding-left: 30px;">系统会确保VirtualAlloc预订的地址区域的起始地址是分配粒度(allocation granularity)的整数倍</span>
+<span style="padding-left: 30px;">一个块是一些连续的页面</span></p>
+
+<p>第14章 探索虚拟内存
+<span style="padding-left: 30px;">系统信息：GetSystemInfo、GetLogicalProcessorInformation、IsWow64Process、GetCurrentProcess</span>
+<span style="padding-left: 30px;">虚拟内存状态：GlobalMemoryStatus(Ex)</span>
+<span style="padding-left: 30px;">NUMA机器中的内存管理：GetNumaAvailableMemoryNode、GetNumaProcessNode、GetNumaHighestNodeNumber、GetNumaNodeProcessorMask</span>
+地址空间的状态：VirtualQuery(Ex)
+<span style="padding-left: 30px;">/dynamicbase  进程共享ASLR基址重定向的页面</span>
+第15章 在应用程序中使用虚拟内存
+<span style="padding-left: 30px;">虚拟内存：管理大型对象数组或大型数据结构数组</span>
+<span style="padding-left: 30px;">内存映射文件：管理大型数据流，多进程共享数据</span>
+<span style="padding-left: 30px;">堆：管理大量小型对象</span>
+<span style="padding-left: 30px;">VirtualAlloc、VirtualFree、VirtualQuery、VirtualProtect</span>
+地址窗口扩展(AWE)(使用物理内存，提高性能)：AllocateUserPhysicalPages、MapUserPhysicalPages、FreeUserPhysicalPages</p>
+
+<p>第16章 线程栈
+<span style="padding-left: 30px;">SetThreadStackGuarante</span></p>
+
+<!--more-->
+
+
+<p>第17章 内存映射文件
+<span style="padding-left: 30px;">映射到内存的EXE和DLL</span>
+<span style="padding-left: 30px;">一个应用程序的多个实例共享内存中的代码和数据，避免一个实例修改全局变量导致错误，系统通过内存管理的写时复制特性防止此发生。数据写写入时，系统会为其开辟一块新的内存。</span>
+<span style="padding-left: 30px;">#pragma data_seg("name") 用来创建名为"name"的段，该段内的数据必须初始化，否则数据不属于该段</span>
+<span style="padding-left: 30px;">allocate允许将未初始化的数据放入莫个段中</span>
+<span style="padding-left: 30px;">为数据创建单独的段是为了多个实例共享数据。编译选项/SECTION:name,attributes。#pragma comment(linker, "SECTION:Shared, RWS")</span>
+<span style="padding-left: 30px;">_tscrev颠倒文件数据(0结尾)</span>
+<span style="padding-left: 30px;">CreateFile(失败为NULL或INVALID_HANDLE_VALUE) --> CreateFileMapping (告诉系统映射文件需要多大的物理内存) --> MapViewOfFile --> UnmapViewOfFile --> FlushViewOfFile --> CloseHandle</span>
+<span style="padding-left: 30px;">MoveMemory</span>
+<span style="padding-left: 30px;">只读文件适合用于内存映射文件。可写文件不适合(无法保证一致性)，应独占文件(dwShareMode = 0)。</span>
+<span style="padding-left: 30px;">以页交换文件为后备存储器的内存映射文件：CreateFileMapping时hFile = INVALID_HANDLE_VALUE</span>
+<span style="padding-left: 30px;">稀疏调拨的内存映射文件：CreateMapping时传入SEC_RESERVE标志，系统不会从页交换文件中调拨物理存储器。然后使用VirtualAlloc调拨物理内存</span>
+第18章 堆
+<span style="padding-left: 30px;">GetProcessHeap获取进程默认堆句柄。默认堆只允许一个线程访问。</span>
+<span style="padding-left: 30px;">HeapCreate、HeapAlloc、HeapSize、HeapFree、HeapDestroy</span>
+<span style="padding-left: 30px;">GetProcessHeaps、HeapValidate、HeapCompact、HeapLock、HeapUnlock、HeapWalk</span></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （六）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/24/learn-windows-progamme-6/"/>
+    <updated>2011-11-24T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/24/learn-windows-progamme-6</id>
+    <content type="html"><![CDATA[<p>第10章 同步设备I/O与异步设备I/O
+<span style="padding-left: 30px;">打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、CreateConsoleScreenBuffer,GetFileType</span>
+<span style="padding-left: 30px;">CreateFile 的高速缓存标志：FILE_FLAG_NO_BUFFERING(GetDiskFreeSpace扇区的整数倍)，FILE_FLAG_SEQUENTIAL_SCAN，FILE_FLAG_RANDOM_ACCESS，FILE_FLAG_WRITE_THROUGH</span>
+<span style="padding-left: 30px;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span>
+Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+<span style="padding-left: 30px;">GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile</span>
+<span style="padding-left: 30px;">执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo</span>
+<span style="padding-left: 30px;">异步：OVERLAPPED结构、CancelIoEx</span>
+<span style="padding-left: 30px;">可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx</span>
+<span style="padding-left: 30px;">I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus</span>
+Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+<span style="padding-left: 30px;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
+
+<!--more-->
+
+
+<p>第11章 Windows线程池
+<span style="padding-left: 30px;">异步调用函数：CreateThreadpoolWork、TrySubmitThreadpoolWork、SubmitThreadpoolWork、WaitForThreadpoolWorkCallbacks、CloseThreadpoolWork</span>
+<span style="padding-left: 30px;">每隔一段时间调用函数：CreateThreadpoolTimer、SetThreadpoolTimer、WaitForThreadpoolTimerCallbacks、IsThreadpoolTimerSet、CloseThreadpoolTimer</span>
+<span style="padding-left: 30px;">内核对象出发时调用函数：CreateThreadpoolWait、SetThreadpoolWait、CloseThreadpoolWait</span>
+<span style="padding-left: 30px;">异步I/O请求完成时调用函数：CreateThreadpoolIo、StartThreadpoolIo、CancelThreadpoolIo、CloseThreadpoolIo</span>
+<span style="padding-left: 30px;">the default thread pool has the minimum number of threads set to 1 and its maximum number of threads set to 500</span></p>
+
+<p>第12章 纤程
+<span style="padding-left: 30px;">尽量避免使用纤程</span>
+<span style="padding-left: 30px;">ConvertThreadToFiber(Ex)、CreateFiber(Ex)、SwitchToFiber、DeleteFiber、GetCurrentFiber、GetFiberData</span></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （五）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/20/learn-windows-progamme-5/"/>
+    <updated>2011-11-20T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/20/learn-windows-progamme-5</id>
+    <content type="html"><![CDATA[<p>第8章：用户模式下的线程同步
+<span style="padding-left: 30px;">Interlocked系列函数，原子操作，使用时保证传给函数的变量是对齐的，否则可能会失效。_aligned_malloc</span>
+<span style="padding-left: 30px;">当一个CPU修改了Cache中一个字节时，其他收到通知，并使自己的Cache作废。应该把只读（不经常读）与可读写的数据分别存放。GetLogicalProcessorInformation,__declspec(align(#))对齐</span>
+<span style="padding-left: 30px;">volatile，优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。指针不受编译器的优化影响，必须从内存读取。</span>
+<span style="padding-left: 30px;">关键段：EnterCriticalSection、LeaveCriticalSection、InitializeCriticalSection、DeleteCriticalSection、CriticalSectionTimeout、TryEnterCriticalSection</span>
+<span style="padding-left: 30px;">当线程试图进入被占用的关键段，线程切换到等待状态。这意味着线程从用户模式切换到内核模式（大约 1000 个CPU；周期）。InitializeCriticalSectionAndSpinCount</span>
+<span style="padding-left: 30px;">条件变量：SleepConditionVariable*、WakeConditionVariable、WakeAllConditiongVariable</span>
+<span style="padding-left: 30px;">以原子方式操作一组对象时使用一个锁；同时访问多个逻辑资源，以相同的顺序获得锁的资源；不长时间占用锁</span></p>
+
+<table linktabletoexcel="yes">
+<caption class="table-title">
+<span class="table-title">Comparison of Synchronization Mechanism Performance</span>
+<br>
+</caption>
+<thead>
+<tr valign="top">
+<th class="th" scope="col" align="left">
+<p class="table-para">
+<b class="bold">Threads\milliseconds</b>
+</p>
+</th><th class="th" scope="col" align="left">
+<p class="table-para">
+<b class="bold">Volatile Read</b>
+</p>
+</th><th class="th" scope="col" align="left">
+<p class="table-para">
+<b class="bold">Volatile Write</b>
+</p>
+</th><th class="th" scope="col" align="left">
+<p class="table-para">
+<b class="bold">Interlocked Increment</b>
+</p>
+</th><th class="th" scope="col" align="left">
+<p class="table-para">
+<b class="bold">Critical Section</b>
+</p>
+</th><th class="th" scope="col" align="left">
+<p class="table-para">
+<b class="bold">SRWLock Shared</b>
+</p>
+</th><th class="th" scope="col" align="left">
+<p class="table-para">
+<b class="bold">SRWLock Exclusive</b>
+</p>
+</th><th class="th" scope="col" align="left">
+<p class="table-para">
+<b class="bold">Mutex</b>
+</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr valign="top">
+<td class="td" align="left">
+<p class="table-para">1</p>
+</td><td class="td" align="left">
+<p class="table-para">8</p>
+</td><td class="td" align="left">
+<p class="table-para">8</p>
+</td><td class="td" align="left">
+<p class="table-para">35</p>
+</td><td class="td" align="left">
+<p class="table-para">66</p>
+</td><td class="td" align="left">
+<p class="table-para">66</p>
+</td><td class="td" align="left">
+<p class="table-para">67</p>
+</td><td class="td" align="left">
+<p class="table-para">1060</p>
+</td>
+</tr>
+<tr valign="top">
+<td class="td" align="left">
+<p class="table-para">2</p>
+</td><td class="td" align="left">
+<p class="table-para">8</p>
+</td><td class="td" align="left">
+<p class="table-para">76</p>
+</td><td class="td" align="left">
+<p class="table-para">153</p>
+</td><td class="td" align="left">
+<p class="table-para">268</p>
+</td><td class="td" align="left">
+<p class="table-para">134</p>
+</td><td class="td" align="left">
+<p class="table-para">148</p>
+</td><td class="td" align="left">
+<p class="table-para">11082</p>
+</td>
+</tr>
+<tr valign="top">
+<td class="td" align="left">
+<p class="table-para">4</p>
+</td><td class="td" align="left">
+<p class="table-para">9</p>
+</td><td class="td" align="left">
+<p class="table-para">145</p>
+</td><td class="td" align="left">
+<p class="table-para">361</p>
+</td><td class="td" align="left">
+<p class="table-para">768</p>
+</td><td class="td" align="left">
+<p class="table-para">244</p>
+</td><td class="td" align="left">
+<p class="table-para">307</p>
+</td><td class="td" align="left">
+<p class="table-para">23785</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<!--more-->
+
+
+<p>第9章：用内核对象进行线程同步</p>
+
+<p><span style="padding-left: 30px;">WaitForSingleObject、WaitForMultipleObjects，内核对象被触发返回。等待成功引起的副作用，由于事件对象触发时，在返回WAIT_OBJECT_0前会使对象变为非触发状态</span>
+Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+<span style="padding-left: 30px;">hAutoResetEvent1先触发，hAutoResetEvent2触发，两线程的一个检测到触发，系统把两个事件对象都设为未触发</span>
+<span style="padding-left: 30px;">事件内核对象：CreateEvent(Ex)、SetEvent、ResetEvent、PulseEvent(不经常使用)、OpenEvent(DuplicateHandle)。使用自动重置的对象，当对象被触发，系统只会让次要线程中的一个变为可调度状态，所以要在每个次要线程调用时使用SetEvent，否则其他次要线程将等待。</span>
+<span style="padding-left: 30px;">可等待的计时器内核对象：CreateWaitableTimer、SetWaitableTimer、CancelWaitableTimer、OpenWaitableTimer</span>
+Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+<span style="padding-left: 30px;">信号量内核对象：CreateSemaphore、OpenSemaphore、ReleaseSemaphore</span>
+<span style="padding-left: 30px;">互斥量内核对象：CreateMutex、OpenMutex、RleaseMutex</span>
+<span style="padding-left: 30px;">WaitForInputIdle、MsgWaitForMultipleObjects(Ex)(用户界面相关的线程使用)、WaitForDebugEvent、SignalObjectAndWait(通过原子操作让一个内核对象等待另一个内核对象)</span>
+<span style="padding-left: 30px;">等待链遍历API检测死锁：ParseThreads、OpenThreadWaitChainSession、GetThreadChain</span></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[windows via c/c++ 笔记 （四）]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/17/learn-windows-progamme-4/"/>
+    <updated>2011-11-17T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/17/learn-windows-progamme-4</id>
+    <content type="html"><![CDATA[<p>第6章：线程基础
+<span style="padding-left: 30px;">线程由两部分组成：内核对象和线程栈</span>
+<span style="padding-left: 30px;">线程共享地址空间、共享内核对象句柄，因为句柄表是针对进程的</span>
+<span style="padding-left: 30px;">多线程时可以采用static变量防止对象被销毁，但这会使函数不可重入。（不能创建两个线程执行同一个函数，因为两个线程共享同一个静态变量）</span>
+<span style="padding-left: 30px;">ExitThread、TerminateThread、GetExitCodeThread</span>
+<span style="padding-left: 30px;">使用<em>beginthreadex而不要用CreateThread，CreateThread不是线程安全的，ExitThread没用释放</em>tiddata(<em>endthreadex释放了)。</em>endthread在调用ExitThread前会调用CloseHandle，而_endthreadex不会。</span>
+<span style="padding-left: 30px;">GetCurrentProcess、GetCurrentThread、GetCurrentProcessId、GetCurrentThreadId、DuplicateHandle用于把进程的伪句柄转换为真正的进程句柄</span></p>
+
+<!--more-->
+
+
+<p>第7章：线程调度、优先级和关联性
+<span style="padding-left: 30px;">ResumeThread、SuspendThread，当挂起数为0时，线程可调度</span>
+<span style="padding-left: 30px;">WaitForDebugEvent挂起进程中所有线程，直至ContinueDebugEvent</span>
+<span style="padding-left: 30px;">SwitchToThread与Sleep(0)类似，SwitchToThread允许执行低优先级的线程而Sleep不可以</span>
+<span style="padding-left: 30px;">GetTickCount64、GetThreadTimes、GetProcessTimes、QueryThreadCycleTime、QueryProcessCycleTime、ReadTimeStampCounter、QueryPerformanceFrequency、QueryPerformanceCounter</span>
+<span style="padding-left: 30px;">调用GetThreadContext前应调用SuspendThread否则可能会导致Context信息不一致</span>
+<span style="padding-left: 30px;">SetPriorityClass、SetProcessPriorityBoost、SetThreadPriorityBoost</span>
+<span style="padding-left: 30px;">SetProcessAffinityMask、GetProcessAffinityMask、SetThreadIdealProcessor关联性</span></p>
+]]></content>
+  </entry>
+  
+</feed>

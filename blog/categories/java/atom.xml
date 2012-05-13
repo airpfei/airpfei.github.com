@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: java | Blog Of Peng Fei]]></title>
+  <link href="http://airpfei.github.com/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://airpfei.github.com/"/>
+  <updated>2012-05-13T23:16:51+08:00</updated>
+  <id>http://airpfei.github.com/</id>
+  <author>
+    <name><![CDATA[Peng Fei]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[java nio demo]]></title>
+    <link href="http://airpfei.github.com/blog/2011/11/13/java-nio-demo/"/>
+    <updated>2011-11-13T00:00:00+08:00</updated>
+    <id>http://airpfei.github.com/blog/2011/11/13/java-nio-demo</id>
+    <content type="html"><![CDATA[<p><span style="padding-left: 30px;">J2SE1.4中引入了新I/O库(NIO)来解决这个问题。NIO使用面向缓冲(buffer)的模型。这就是说，NIO主要处理大块的数据。这就避免了利用流模型处理所引起的问题，在有可能的情况下，它甚至可以为了得到最大的吞吐量而使用系统级的工具。</span></p>
+
+<!--more-->
+
+
+<p>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module</p>
+]]></content>
+  </entry>
+  
+</feed>

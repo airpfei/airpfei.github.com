@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>windows via c/c++ 笔记 （六） - Blog Of Peng Fei</title>
+  <meta name="author" content="Peng Fei">
+
+  
+  <meta name="description" content="第10章 同步设备I/O与异步设备I/O
+打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://airpfei.github.com/blog/2011/11/24/learn-windows-progamme-6">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Blog Of Peng Fei" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25271760-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog Of Peng Fei</a></h1>
+  
+    <h2>A blogging framework for hackers</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:airpfei.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Windows via C/c++ 笔记 （六）</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-24T00:00:00+08:00" pubdate data-updated="true">Nov 24<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>第10章 同步设备I/O与异步设备I/O
+<span style="padding-left: 30px;">打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、CreateConsoleScreenBuffer,GetFileType</span>
+<span style="padding-left: 30px;">CreateFile 的高速缓存标志：FILE_FLAG_NO_BUFFERING(GetDiskFreeSpace扇区的整数倍)，FILE_FLAG_SEQUENTIAL_SCAN，FILE_FLAG_RANDOM_ACCESS，FILE_FLAG_WRITE_THROUGH</span>
+<span style="padding-left: 30px;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span>
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+&lt;span style="padding-left: 30px;"&gt;GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile&lt;/span&gt;
+&lt;span style="padding-left: 30px;"&gt;执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo&lt;/span&gt;
+&lt;span style="padding-left: 30px;"&gt;异步：OVERLAPPED结构、CancelIoEx&lt;/span&gt;
+&lt;span style="padding-left: 30px;"&gt;可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx&lt;/span&gt;
+&lt;span style="padding-left: 30px;"&gt;I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus&lt;/span&gt;
+Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module
+<span style="padding-left: 30px;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
+
+<!--more-->
+
+
+<p>第11章 Windows线程池
+<span style="padding-left: 30px;">异步调用函数：CreateThreadpoolWork、TrySubmitThreadpoolWork、SubmitThreadpoolWork、WaitForThreadpoolWorkCallbacks、CloseThreadpoolWork</span>
+<span style="padding-left: 30px;">每隔一段时间调用函数：CreateThreadpoolTimer、SetThreadpoolTimer、WaitForThreadpoolTimerCallbacks、IsThreadpoolTimerSet、CloseThreadpoolTimer</span>
+<span style="padding-left: 30px;">内核对象出发时调用函数：CreateThreadpoolWait、SetThreadpoolWait、CloseThreadpoolWait</span>
+<span style="padding-left: 30px;">异步I/O请求完成时调用函数：CreateThreadpoolIo、StartThreadpoolIo、CancelThreadpoolIo、CloseThreadpoolIo</span>
+<span style="padding-left: 30px;">the default thread pool has the minimum number of threads set to 1 and its maximum number of threads set to 500</span></p>
+
+<p>第12章 纤程
+<span style="padding-left: 30px;">尽量避免使用纤程</span>
+<span style="padding-left: 30px;">ConvertThreadToFiber(Ex)、CreateFiber(Ex)、SwitchToFiber、DeleteFiber、GetCurrentFiber、GetFiberData</span></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Peng Fei</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-24T00:00:00+08:00" pubdate data-updated="true">Nov 24<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tech/'>tech</a>, <a class='category' href='/blog/categories/windows/'>windows</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/11/20/learn-windows-progamme-5/" title="Previous Post: windows via c/c++ 笔记 （五）">&laquo; windows via c/c++ 笔记 （五）</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/11/30/learn-windows-progamme-7/" title="Next Post: windows via c/c++ 笔记 （七）">windows via c/c++ 笔记 （七） &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/12/hello-world/">hello, world</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/15/plan/">read some source code in the next few months</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/12/10/goodbye-c-sharp/">Goodbye C Sharp</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/12/09/learn-windows-progamme-8/">windows via c/c++ 笔记 （八）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/30/learn-windows-progamme-7/">windows via c/c++ 笔记 （七）</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Peng Fei -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'airpfei';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://airpfei.github.com/blog/2011/11/24/learn-windows-progamme-6/';
+        var disqus_url = 'http://airpfei.github.com/blog/2011/11/24/learn-windows-progamme-6/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
