@@ -226,13 +226,55 @@
 <h2>第9章：用内核对象进行线程同步</h2>
 
 
-<p><span style="display:block;text-indent:2em;">WaitForSingleObject、WaitForMultipleObjects，内核对象被触发返回。等待成功引起的副作用，由于事件对象触发时，在返回WAIT_OBJECT_0前会使对象变为非触发状态</span>
-Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
-&lt;span style="display:block;text-indent:2em;"&gt;hAutoResetEvent1先触发，hAutoResetEvent2触发，两线程的一个检测到触发，系统把两个事件对象都设为未触发&lt;/span&gt;
-&lt;span style="display:block;text-indent:2em;"&gt;事件内核对象：CreateEvent(Ex)、SetEvent、ResetEvent、PulseEvent(不经常使用)、OpenEvent(DuplicateHandle)。使用自动重置的对象，当对象被触发，系统只会让次要线程中的一个变为可调度状态，所以要在每个次要线程调用时使用SetEvent，否则其他次要线程将等待。&lt;/span&gt;
-&lt;span style="display:block;text-indent:2em;"&gt;可等待的计时器内核对象：CreateWaitableTimer、SetWaitableTimer、CancelWaitableTimer、OpenWaitableTimer&lt;/span&gt;
-Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module
-<span style="display:block;text-indent:2em;">信号量内核对象：CreateSemaphore、OpenSemaphore、ReleaseSemaphore</span>
+<p><span style="display:block;text-indent:2em;">WaitForSingleObject、WaitForMultipleObjects，内核对象被触发返回。等待成功引起的副作用，由于事件对象触发时，在返回WAIT_OBJECT_0前会使对象变为非触发状态</span></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>HANDLE h[2];
+</span><span class='line'>h[0] = hAutoResetEvent1;   // Initially nonsignaled
+</span><span class='line'>h[1] = hAutoResetEvent2;   // Initially nonsignaled
+</span><span class='line'>WaitForMultipleObjects(2, h, TRUE, INFINITE);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><span style="display:block;text-indent:2em;">hAutoResetEvent1先触发，hAutoResetEvent2触发，两线程的一个检测到触发，系统把两个事件对象都设为未触发</span>
+<span style="display:block;text-indent:2em;">事件内核对象：CreateEvent(Ex)、SetEvent、ResetEvent、PulseEvent(不经常使用)、OpenEvent(DuplicateHandle)。使用自动重置的对象，当对象被触发，系统只会让次要线程中的一个变为可调度状态，所以要在每个次要线程调用时使用SetEvent，否则其他次要线程将等待。</span>
+<span style="display:block;text-indent:2em;">可等待的计时器内核对象：CreateWaitableTimer、SetWaitableTimer、CancelWaitableTimer、OpenWaitableTimer</span></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>void SomeFunc() {
+</span><span class='line'>   // Create a timer. (It doesn't matter whether it's manual-reset
+</span><span class='line'>   // or auto-reset.)
+</span><span class='line'>   HANDLE hTimer = CreateWaitableTimer(NULL, TRUE, NULL);
+</span><span class='line'>
+</span><span class='line'>   // Set timer to go off in 5 seconds.
+</span><span class='line'>   LARGE_INTEGER li = { 0 };
+</span><span class='line'>   SetWaitableTimer(hTimer, &amp;li, 5000, TimerAPCRoutine, NULL, FALSE);
+</span><span class='line'>
+</span><span class='line'>   //APC异步函数被插入线程，线程恢复
+</span><span class='line'>   // Wait in an alertable state for the timer to go off.
+</span><span class='line'>   SleepEx(INFINITE, TRUE);
+</span><span class='line'>
+</span><span class='line'>   CloseHandle(hTimer);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><span style="display:block;text-indent:2em;">信号量内核对象：CreateSemaphore、OpenSemaphore、ReleaseSemaphore</span>
 <span style="display:block;text-indent:2em;">互斥量内核对象：CreateMutex、OpenMutex、RleaseMutex</span>
 <span style="display:block;text-indent:2em;">WaitForInputIdle、MsgWaitForMultipleObjects(Ex)(用户界面相关的线程使用)、WaitForDebugEvent、SignalObjectAndWait(通过原子操作让一个内核对象等待另一个内核对象)</span>
 <span style="display:block;text-indent:2em;">等待链遍历API检测死锁：ParseThreads、OpenThreadWaitChainSession、GetThreadChain</span></p>
