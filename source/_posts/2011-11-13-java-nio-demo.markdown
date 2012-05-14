@@ -5,10 +5,10 @@ date: 2011-11-13
 comments: true
 categories: [tech, java]
 ---
-<span style="padding-left: 30px;">J2SE1.4中引入了新I/O库(NIO)来解决这个问题。NIO使用面向缓冲(buffer)的模型。这就是说，NIO主要处理大块的数据。这就避免了利用流模型处理所引起的问题，在有可能的情况下，它甚至可以为了得到最大的吞吐量而使用系统级的工具。</span>
+<span style="display:block;text-indent:2em;">J2SE1.4中引入了新I/O库(NIO)来解决这个问题。NIO使用面向缓冲(buffer)的模型。这就是说，NIO主要处理大块的数据。这就避免了利用流模型处理所引起的问题，在有可能的情况下，它甚至可以为了得到最大的吞吐量而使用系统级的工具。</span>
 
 <!--more-->
-{% codeblock lang:java %}
+``` java
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -124,4 +124,4 @@ public static void main(String args[]) throws UnknownHostException, IOException{
     out.flush();
 }
 }
-{% endcodeblock %}
+```

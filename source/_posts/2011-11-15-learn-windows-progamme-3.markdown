@@ -5,13 +5,13 @@ date: 2011-11-15
 comments: true
 categories: [tech, windows]
 ---
-第4章：进程
-<span style="padding-left: 30px;">进程由内核对象和地址空间组成</span>
-<span style="padding-left: 30px;">(w)WinMain的hInstanceExe参数是可执行文件的映像加载到内存的基址；</span>
-<span style="padding-left: 30px;">HMODULE和HINSTANCE是一样的，由于win16导致函数名不同；</span>
-<span style="padding-left: 30px;">__ImageBase连接器提供的伪变量，指向当前运行模块的基地址</span>
-span style="padding-left: 30px;">GetModuleHandle(NULL)返回进程地址空间中可执行文件的基地址，而非DLL的基地址</span>
-{% codeblock lang:cpp %}
+<h2>第4章：进程</h2>
+<span style="display:block;text-indent:2em;">进程由内核对象和地址空间组成</span>
+<span style="display:block;text-indent:2em;">(w)WinMain的hInstanceExe参数是可执行文件的映像加载到内存的基址；</span>
+<span style="display:block;text-indent:2em;">HMODULE和HINSTANCE是一样的，由于win16导致函数名不同；</span>
+<span style="display:block;text-indent:2em;">__ImageBase连接器提供的伪变量，指向当前运行模块的基地址</span>
+span style="display:block;text-indent:2em;">GetModuleHandle(NULL)返回进程地址空间中可执行文件的基地址，而非DLL的基地址</span>
+``` cpp
 //使用HeapFree释放内存
 PWSTR *ppArgv = CommandLineToArgvW(GetCommandLineW(), &amp;nNumArgs);
 // Use the arguments…
@@ -20,12 +20,12 @@ if (*ppArgv[1] == L'x') {
 }
 // Free the memory block
 HeapFree(GetProcessHeap(), 0, ppArgv);
-{% endcodeblock %}
-<span style="padding-left: 30px;">GetEnvironmentStrings、FreeEnvironmentStrings，环境变量，读注册表HKEY_CURRENT_USER_ENVIRONMENT</span>
-<span style="padding-left: 30px;">SetErrorMode告诉系统如何处理错误</span>
-<span style="padding-left: 30px;">目录名、文件名MAX_PATH=260</span>
-<span style="padding-left: 30px;">GetCurrrentDirectory、SetCurrentDirectory、GetFullPathName</span>
-{% codeblock lang:cpp %}
+```
+<span style="display:block;text-indent:2em;">GetEnvironmentStrings、FreeEnvironmentStrings，环境变量，读注册表HKEY_CURRENT_USER_ENVIRONMENT</span>
+<span style="display:block;text-indent:2em;">SetErrorMode告诉系统如何处理错误</span>
+<span style="display:block;text-indent:2em;">目录名、文件名MAX_PATH=260</span>
+<span style="display:block;text-indent:2em;">GetCurrrentDirectory、SetCurrentDirectory、GetFullPathName</span>
+``` cpp
 PROCESS_INFORMATION pi;
 DWORD dwExitCode;
 // Spawn the child process.
@@ -49,10 +49,10 @@ if (fSuccess) {
    CloseHandle(pi.hThread);
    CloseHandle(pi.hProcess);
 }
-{% endcodeblock %}
+```
 <!--more-->
 <br />
-第5章：作业
-<span style="padding-left: 30px;">Windows提供了作业（Job）内核对象，将进城组合在一起并创建一个“沙箱”来限制进程</span>
-<span style="padding-left: 30px;">如果未定义manifest或debug，windows资源管理器会将进程同“PCA”前缀的作业关联，可以从cmd启动进程</span>
-<span style="padding-left: 30px;">CreateJobObject、OpenJobObject、UserHandleGrantAccess、SetInformationJobObject、AssignProcessToJobObject、TerminateJobObject、QueryInformationJobObject、GetQueuedCompletionStatus</span>
+<h2>第5章：作业</h2>
+<span style="display:block;text-indent:2em;">Windows提供了作业（Job）内核对象，将进城组合在一起并创建一个“沙箱”来限制进程</span>
+<span style="display:block;text-indent:2em;">如果未定义manifest或debug，windows资源管理器会将进程同“PCA”前缀的作业关联，可以从cmd启动进程</span>
+<span style="display:block;text-indent:2em;">CreateJobObject、OpenJobObject、UserHandleGrantAccess、SetInformationJobObject、AssignProcessToJobObject、TerminateJobObject、QueryInformationJobObject、GetQueuedCompletionStatus</span>

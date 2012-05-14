@@ -6,4 +6,5 @@ comments: true
 categories: [personal]
 ---
 modern c++ design let me know c++ template can do much more, although i can't complete understand. i need read it again.
+
 loki, chrome, linux kernel i really want to read.
