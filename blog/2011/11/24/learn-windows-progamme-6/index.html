@@ -107,57 +107,15 @@
 
 <p><span style="display:block;text-indent:2em;">打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、CreateConsoleScreenBuffer,GetFileType</span>
 <span style="display:block;text-indent:2em;">CreateFile 的高速缓存标志：FILE_FLAG_NO_BUFFERING(GetDiskFreeSpace扇区的整数倍)，FILE_FLAG_SEQUENTIAL_SCAN，FILE_FLAG_RANDOM_ACCESS，FILE_FLAG_WRITE_THROUGH</span>
-<span style="display:block;text-indent:2em;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>HANDLE hFile = CreateFile(...);
-</span><span class='line'>if (hFile == NULL) {
-</span><span class='line'>   // We'll never get in here
-</span><span class='line'>} else {
-</span><span class='line'>   // File might or might not be created OK
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>//Here's the correct way to check for an invalid file handle:
-</span><span class='line'>HANDLE hFile = CreateFile(...);
-</span><span class='line'>if (hFile == INVALID_HANDLE_VALUE) {
-</span><span class='line'>   // File not created
-</span><span class='line'>} else {
-</span><span class='line'>   // File created OK
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile</span>
-<span style="display:block;text-indent:2em;">执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo</span>
-<span style="display:block;text-indent:2em;">异步：OVERLAPPED结构、CancelIoEx</span>
-<span style="display:block;text-indent:2em;">可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx</span>
-<span style="display:block;text-indent:2em;">I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//为了只创建I/O完成端口，只需要设置第四个参数。dwNumberOfConcurrentThreads (并发线程数量) = 0，系统默认为CPU的数量
-</span><span class='line'>HANDLE CreateNewCompletionPort(DWORD dwNumberOfConcurrentThreads) {
-</span><span class='line'>   return(CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0,
-</span><span class='line'>      dwNumberOfConcurrentThreads));
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
+<span style="display:block;text-indent:2em;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span>
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+&lt;span style="display:block;text-indent:2em;"&gt;GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;异步：OVERLAPPED结构、CancelIoEx&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus&lt;/span&gt;
+Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module
+<span style="display:block;text-indent:2em;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
 
 <!--more-->
 

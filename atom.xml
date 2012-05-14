@@ -4,7 +4,7 @@
   <title><![CDATA[Blog Of Peng Fei]]></title>
   <link href="http://airpfei.github.com/atom.xml" rel="self"/>
   <link href="http://airpfei.github.com/"/>
-  <updated>2012-05-14T23:38:06+08:00</updated>
+  <updated>2012-05-15T00:29:44+08:00</updated>
   <id>http://airpfei.github.com/</id>
   <author>
     <name><![CDATA[Peng Fei]]></name>
@@ -181,57 +181,15 @@
 
 <p><span style="display:block;text-indent:2em;">打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、CreateConsoleScreenBuffer,GetFileType</span>
 <span style="display:block;text-indent:2em;">CreateFile 的高速缓存标志：FILE_FLAG_NO_BUFFERING(GetDiskFreeSpace扇区的整数倍)，FILE_FLAG_SEQUENTIAL_SCAN，FILE_FLAG_RANDOM_ACCESS，FILE_FLAG_WRITE_THROUGH</span>
-<span style="display:block;text-indent:2em;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>HANDLE hFile = CreateFile(...);
-</span><span class='line'>if (hFile == NULL) {
-</span><span class='line'>   // We'll never get in here
-</span><span class='line'>} else {
-</span><span class='line'>   // File might or might not be created OK
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>//Here's the correct way to check for an invalid file handle:
-</span><span class='line'>HANDLE hFile = CreateFile(...);
-</span><span class='line'>if (hFile == INVALID_HANDLE_VALUE) {
-</span><span class='line'>   // File not created
-</span><span class='line'>} else {
-</span><span class='line'>   // File created OK
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile</span>
-<span style="display:block;text-indent:2em;">执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo</span>
-<span style="display:block;text-indent:2em;">异步：OVERLAPPED结构、CancelIoEx</span>
-<span style="display:block;text-indent:2em;">可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx</span>
-<span style="display:block;text-indent:2em;">I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//为了只创建I/O完成端口，只需要设置第四个参数。dwNumberOfConcurrentThreads (并发线程数量) = 0，系统默认为CPU的数量
-</span><span class='line'>HANDLE CreateNewCompletionPort(DWORD dwNumberOfConcurrentThreads) {
-</span><span class='line'>   return(CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0,
-</span><span class='line'>      dwNumberOfConcurrentThreads));
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
+<span style="display:block;text-indent:2em;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span>
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+&lt;span style="display:block;text-indent:2em;"&gt;GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;异步：OVERLAPPED结构、CancelIoEx&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus&lt;/span&gt;
+Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module
+<span style="display:block;text-indent:2em;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
 
 <!--more-->
 
@@ -381,55 +339,13 @@
 <h2>第9章：用内核对象进行线程同步</h2>
 
 
-<p><span style="display:block;text-indent:2em;">WaitForSingleObject、WaitForMultipleObjects，内核对象被触发返回。等待成功引起的副作用，由于事件对象触发时，在返回WAIT_OBJECT_0前会使对象变为非触发状态</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>HANDLE h[2];
-</span><span class='line'>h[0] = hAutoResetEvent1;   // Initially nonsignaled
-</span><span class='line'>h[1] = hAutoResetEvent2;   // Initially nonsignaled
-</span><span class='line'>WaitForMultipleObjects(2, h, TRUE, INFINITE);</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">hAutoResetEvent1先触发，hAutoResetEvent2触发，两线程的一个检测到触发，系统把两个事件对象都设为未触发</span>
-<span style="display:block;text-indent:2em;">事件内核对象：CreateEvent(Ex)、SetEvent、ResetEvent、PulseEvent(不经常使用)、OpenEvent(DuplicateHandle)。使用自动重置的对象，当对象被触发，系统只会让次要线程中的一个变为可调度状态，所以要在每个次要线程调用时使用SetEvent，否则其他次要线程将等待。</span>
-<span style="display:block;text-indent:2em;">可等待的计时器内核对象：CreateWaitableTimer、SetWaitableTimer、CancelWaitableTimer、OpenWaitableTimer</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>void SomeFunc() {
-</span><span class='line'>   // Create a timer. (It doesn't matter whether it's manual-reset
-</span><span class='line'>   // or auto-reset.)
-</span><span class='line'>   HANDLE hTimer = CreateWaitableTimer(NULL, TRUE, NULL);
-</span><span class='line'>
-</span><span class='line'>   // Set timer to go off in 5 seconds.
-</span><span class='line'>   LARGE_INTEGER li = { 0 };
-</span><span class='line'>   SetWaitableTimer(hTimer, &amp;li, 5000, TimerAPCRoutine, NULL, FALSE);
-</span><span class='line'>
-</span><span class='line'>   //APC异步函数被插入线程，线程恢复
-</span><span class='line'>   // Wait in an alertable state for the timer to go off.
-</span><span class='line'>   SleepEx(INFINITE, TRUE);
-</span><span class='line'>
-</span><span class='line'>   CloseHandle(hTimer);
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">信号量内核对象：CreateSemaphore、OpenSemaphore、ReleaseSemaphore</span>
+<p><span style="display:block;text-indent:2em;">WaitForSingleObject、WaitForMultipleObjects，内核对象被触发返回。等待成功引起的副作用，由于事件对象触发时，在返回WAIT_OBJECT_0前会使对象变为非触发状态</span>
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+&lt;span style="display:block;text-indent:2em;"&gt;hAutoResetEvent1先触发，hAutoResetEvent2触发，两线程的一个检测到触发，系统把两个事件对象都设为未触发&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;事件内核对象：CreateEvent(Ex)、SetEvent、ResetEvent、PulseEvent(不经常使用)、OpenEvent(DuplicateHandle)。使用自动重置的对象，当对象被触发，系统只会让次要线程中的一个变为可调度状态，所以要在每个次要线程调用时使用SetEvent，否则其他次要线程将等待。&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;可等待的计时器内核对象：CreateWaitableTimer、SetWaitableTimer、CancelWaitableTimer、OpenWaitableTimer&lt;/span&gt;
+Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module
+<span style="display:block;text-indent:2em;">信号量内核对象：CreateSemaphore、OpenSemaphore、ReleaseSemaphore</span>
 <span style="display:block;text-indent:2em;">互斥量内核对象：CreateMutex、OpenMutex、RleaseMutex</span>
 <span style="display:block;text-indent:2em;">WaitForInputIdle、MsgWaitForMultipleObjects(Ex)(用户界面相关的线程使用)、WaitForDebugEvent、SignalObjectAndWait(通过原子操作让一个内核对象等待另一个内核对象)</span>
 <span style="display:block;text-indent:2em;">等待链遍历API检测死锁：ParseThreads、OpenThreadWaitChainSession、GetThreadChain</span></p>
@@ -479,78 +395,13 @@
 <span style="display:block;text-indent:2em;">(w)WinMain的hInstanceExe参数是可执行文件的映像加载到内存的基址；</span>
 <span style="display:block;text-indent:2em;">HMODULE和HINSTANCE是一样的，由于win16导致函数名不同；</span>
 <span style="display:block;text-indent:2em;">__ImageBase连接器提供的伪变量，指向当前运行模块的基地址</span>
-span style=&#8221;display:block;text-indent:2em;&#8221;>GetModuleHandle(NULL)返回进程地址空间中可执行文件的基地址，而非DLL的基地址</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//使用HeapFree释放内存
-</span><span class='line'>PWSTR *ppArgv = CommandLineToArgvW(GetCommandLineW(), &amp;nNumArgs);
-</span><span class='line'>// Use the arguments…
-</span><span class='line'>if (*ppArgv[1] == L'x') {
-</span><span class='line'>   ...
-</span><span class='line'>}
-</span><span class='line'>// Free the memory block
-</span><span class='line'>HeapFree(GetProcessHeap(), 0, ppArgv);</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">GetEnvironmentStrings、FreeEnvironmentStrings，环境变量，读注册表HKEY_CURRENT_USER_ENVIRONMENT</span>
-<span style="display:block;text-indent:2em;">SetErrorMode告诉系统如何处理错误</span>
-<span style="display:block;text-indent:2em;">目录名、文件名MAX_PATH=260</span>
-<span style="display:block;text-indent:2em;">GetCurrrentDirectory、SetCurrentDirectory、GetFullPathName</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PROCESS_INFORMATION pi;
-</span><span class='line'>DWORD dwExitCode;
-</span><span class='line'>// Spawn the child process.
-</span><span class='line'>BOOL fSuccess = CreateProcess(..., &amp;pi);
-</span><span class='line'>if (fSuccess) {
-</span><span class='line'>   // Close the thread handle as soon as it is no longer needed!
-</span><span class='line'>   //！！！递减子进程的主线程内核对象使用计数。使系统能够正常释放子进程
-</span><span class='line'>   CloseHandle(pi.hThread);
-</span><span class='line'>   // Suspend our execution until the child has terminated.
-</span><span class='line'>   WaitForSingleObject(pi.hProcess, INFINITE);
-</span><span class='line'>   // The child process terminated; get its exit code.
-</span><span class='line'>   GetExitCodeProcess(pi.hProcess, &amp;dwExitCode);
-</span><span class='line'>   // Close the process handle as soon as it is no longer needed.
-</span><span class='line'>   CloseHandle(pi.hProcess);
-</span><span class='line'>}
-</span><span class='line'>// 运行独立的子进程
-</span><span class='line'>BOOL fSuccess = CreateProcess(..., &amp;pi);
-</span><span class='line'>if (fSuccess) {
-</span><span class='line'>   // Allow the system to destroy the process &amp; thread kernel
-</span><span class='line'>   // objects as soon as the child process terminates.
-</span><span class='line'>   CloseHandle(pi.hThread);
-</span><span class='line'>   CloseHandle(pi.hProcess);
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
+span style=&#8221;display:block;text-indent:2em;&#8221;>GetModuleHandle(NULL)返回进程地址空间中可执行文件的基地址，而非DLL的基地址</span>
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+&lt;span style="display:block;text-indent:2em;"&gt;GetEnvironmentStrings、FreeEnvironmentStrings，环境变量，读注册表HKEY_CURRENT_USER_ENVIRONMENT&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;SetErrorMode告诉系统如何处理错误&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;目录名、文件名MAX_PATH=260&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;GetCurrrentDirectory、SetCurrentDirectory、GetFullPathName&lt;/span&gt;
+Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <!--more-->
 
@@ -577,237 +428,129 @@ span style=&#8221;display:block;text-indent:2em;&#8221;>GetModuleHandle(NULL)返
 <!--more-->
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import java.io.IOException;
-</span><span class='line'>import java.net.InetSocketAddress;
-</span><span class='line'>import java.net.ServerSocket;
-</span><span class='line'>import java.net.Socket;
-</span><span class='line'>import java.nio.ByteBuffer;
-</span><span class='line'>import java.nio.channels.*;
-</span><span class='line'>import java.util.Set;
-</span><span class='line'>
-</span><span class='line'>public class TestChannel {
-</span><span class='line'>    public static void main(String args[]) throws IOException{
-</span><span class='line'>        TestChannel tt=new TestChannel();
-</span><span class='line'>        //tt.initServerChannel(992);
-</span><span class='line'>        tt.initSelector(992);
-</span><span class='line'>    }
-</span><span class='line'>
-</span><span class='line'>    //最初的java  socket实现方式，直接通过serversocket和socket通信
-</span><span class='line'>    public void initServerSocket(int port) throws IOException{
-</span><span class='line'>        ServerSocketChannel ssc=ServerSocketChannel.open();
-</span><span class='line'>        //ssc.configureBlocking(false);
-</span><span class='line'>        ServerSocket ss=new ServerSocket(port);
-</span><span class='line'>        while(true){
-</span><span class='line'>            Socket socket=ss.accept();
-</span><span class='line'>                System.out.println(&quot;socket accepted&quot;);
-</span><span class='line'>                byte[] buf=new byte[1024];
-</span><span class='line'>                try{
-</span><span class='line'>                socket.getInputStream().read(buf);
-</span><span class='line'>                }
-</span><span class='line'>                catch(Exception ex){
-</span><span class='line'>                    socket.close();
-</span><span class='line'>                }
-</span><span class='line'>                System.out.println(new String(buf));
-</span><span class='line'>
-</span><span class='line'>        }
-</span><span class='line'>    }
-</span><span class='line'>    //通过Channel实现的non-blocking通信方式
-</span><span class='line'>    public void initServerChannel(int port) throws IOException{
-</span><span class='line'>        ServerSocketChannel ssc=ServerSocketChannel.open();
-</span><span class='line'>        ssc.configureBlocking(false);
-</span><span class='line'>        ServerSocket ss=ssc.socket();
-</span><span class='line'>        ss.bind(new InetSocketAddress(port));
-</span><span class='line'>        while(true){
-</span><span class='line'>            SocketChannel sc=ssc.accept();
-</span><span class='line'>            if(sc!=null){
-</span><span class='line'>                Socket socket=sc.socket();
-</span><span class='line'>                System.out.println(&quot;socket accepted&quot;);
-</span><span class='line'>                byte[] buf=new byte[1024];
-</span><span class='line'>                try{
-</span><span class='line'>                socket.getInputStream().read(buf);
-</span><span class='line'>                }
-</span><span class='line'>                catch(Exception ex){
-</span><span class='line'>                    socket.close();
-</span><span class='line'>                }
-</span><span class='line'>                System.out.println(new String(buf));
-</span><span class='line'>            }
-</span><span class='line'>        }
-</span><span class='line'>    }
-</span><span class='line'>    //通过selector和channel进行multiplexed通信,像mina就是通过这种方式实现的
-</span><span class='line'>    public void initSelector(int port) throws IOException{
-</span><span class='line'>        Selector selector=Selector.open();
-</span><span class='line'>        //register server channel
-</span><span class='line'>        ServerSocketChannel ssc=ServerSocketChannel.open();
-</span><span class='line'>        ssc.configureBlocking(false);
-</span><span class='line'>        ServerSocket ss=ssc.socket();
-</span><span class='line'>        ss.bind(new InetSocketAddress(port));
-</span><span class='line'>        ssc.register(selector, SelectionKey.OP_ACCEPT);
-</span><span class='line'>        while(true){
-</span><span class='line'>            int interestNo=selector.select();
-</span><span class='line'>            if(interestNo==0)
-</span><span class='line'>                continue;
-</span><span class='line'>            Set keys=selector.selectedKeys();
-</span><span class='line'>            for(SelectionKey key:keys){
-</span><span class='line'>                //接受Socket连接请求
-</span><span class='line'>                if(key.isAcceptable()){
-</span><span class='line'>                    SocketChannel sc=ssc.accept();
-</span><span class='line'>                    try{
-</span><span class='line'>                    sc.configureBlocking(false);
-</span><span class='line'>                    sc.register(selector, SelectionKey.OP_READ);
-</span><span class='line'>                    }
-</span><span class='line'>                    catch(Exception ex){
-</span><span class='line'>                        sc.close();
-</span><span class='line'>                    }
-</span><span class='line'>                    System.out.println(&quot;connection accepted&quot;);
-</span><span class='line'>                    keys.remove(key);
-</span><span class='line'>                }
-</span><span class='line'>                else if(key.isReadable()){
-</span><span class='line'>                    SocketChannel sc=(SocketChannel)key.channel();
-</span><span class='line'>                    ByteBuffer bbuf=ByteBuffer.allocate(1024);
-</span><span class='line'>                    try{
-</span><span class='line'>                    sc.read(bbuf);
-</span><span class='line'>                    }
-</span><span class='line'>                    catch(Exception ex){
-</span><span class='line'>                        sc.close();
-</span><span class='line'>                    }
-</span><span class='line'>                    System.out.println(new String(bbuf.array()));
-</span><span class='line'>                    keys.remove(key);
-</span><span class='line'>                }
-</span><span class='line'>                else
-</span><span class='line'>                    keys.remove(key);
-</span><span class='line'>                    continue;
-</span><span class='line'>
-</span><span class='line'>                }
-</span><span class='line'>            }
-</span><span class='line'>        }
-</span><span class='line'>    }
-</span><span class='line'>// client:
-</span><span class='line'>
-</span><span class='line'>//Java代码
-</span><span class='line'>public class TestChannelClient {
-</span><span class='line'>public static void main(String args[]) throws UnknownHostException, IOException{
-</span><span class='line'>    Socket sc=new Socket(&quot;127.0.0.1&quot;,992);
-</span><span class='line'>    OutputStream out=sc.getOutputStream();
-</span><span class='line'>    out.write(&quot;hello&quot;.getBytes());
-</span><span class='line'>    out.flush();
-</span><span class='line'>}
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<p>{% codeblock lang:java %}
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.channels.*;
+import java.util.Set;</p>
 
+<p>public class TestChannel {</p>
+
+<pre><code>public static void main(String args[]) throws IOException{
+    TestChannel tt=new TestChannel();
+    //tt.initServerChannel(992);
+    tt.initSelector(992);
+}
+
+//最初的java  socket实现方式，直接通过serversocket和socket通信
+public void initServerSocket(int port) throws IOException{
+    ServerSocketChannel ssc=ServerSocketChannel.open();
+    //ssc.configureBlocking(false);
+    ServerSocket ss=new ServerSocket(port);
+    while(true){
+        Socket socket=ss.accept();
+            System.out.println(&amp;quot;socket accepted&amp;quot;);
+            byte[] buf=new byte[1024];
+            try{
+            socket.getInputStream().read(buf);
+            }
+            catch(Exception ex){
+                socket.close();
+            }
+            System.out.println(new String(buf));
+
+    }
+}
+//通过Channel实现的non-blocking通信方式
+public void initServerChannel(int port) throws IOException{
+    ServerSocketChannel ssc=ServerSocketChannel.open();
+    ssc.configureBlocking(false);
+    ServerSocket ss=ssc.socket();
+    ss.bind(new InetSocketAddress(port));
+    while(true){
+        SocketChannel sc=ssc.accept();
+        if(sc!=null){
+            Socket socket=sc.socket();
+            System.out.println(&amp;quot;socket accepted&amp;quot;);
+            byte[] buf=new byte[1024];
+            try{
+            socket.getInputStream().read(buf);
+            }
+            catch(Exception ex){
+                socket.close();
+            }
+            System.out.println(new String(buf));
+        }
+    }
+}
+//通过selector和channel进行multiplexed通信,像mina就是通过这种方式实现的
+public void initSelector(int port) throws IOException{
+    Selector selector=Selector.open();
+    //register server channel
+    ServerSocketChannel ssc=ServerSocketChannel.open();
+    ssc.configureBlocking(false);
+    ServerSocket ss=ssc.socket();
+    ss.bind(new InetSocketAddress(port));
+    ssc.register(selector, SelectionKey.OP_ACCEPT);
+    while(true){
+        int interestNo=selector.select();
+        if(interestNo==0)
+            continue;
+        Set keys=selector.selectedKeys();
+        for(SelectionKey key:keys){
+            //接受Socket连接请求
+            if(key.isAcceptable()){
+                SocketChannel sc=ssc.accept();
+                try{
+                sc.configureBlocking(false);
+                sc.register(selector, SelectionKey.OP_READ);
+                }
+                catch(Exception ex){
+                    sc.close();
+                }
+                System.out.println(&amp;quot;connection accepted&amp;quot;);
+                keys.remove(key);
+            }
+            else if(key.isReadable()){
+                SocketChannel sc=(SocketChannel)key.channel();
+                ByteBuffer bbuf=ByteBuffer.allocate(1024);
+                try{
+                sc.read(bbuf);
+                }
+                catch(Exception ex){
+                    sc.close();
+                }
+                System.out.println(new String(bbuf.array()));
+                keys.remove(key);
+            }
+            else
+                keys.remove(key);
+                continue;
+
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>// client:</p>
+
+<p>//Java代码
+public class TestChannelClient {
+public static void main(String args[]) throws UnknownHostException, IOException{</p>
+
+<pre><code>Socket sc=new Socket(&amp;quot;127.0.0.1&amp;quot;,992);
+OutputStream out=sc.getOutputStream();
+out.write(&amp;quot;hello&amp;quot;.getBytes());
+out.flush();
+</code></pre>
+
+<p>}
+}
+{% endcodeblock %}</p>
 ]]></content>
   </entry>
   

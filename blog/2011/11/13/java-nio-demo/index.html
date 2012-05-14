@@ -9,18 +9,7 @@
   <meta name="author" content="Peng Fei">
 
   
-  <meta name="description" content="J2SE1.4中引入了新I/O库(NIO)来解决这个问题。NIO使用面向缓冲(buffer)的模型。这就是说，NIO主要处理大块的数据。这就避免了利用流模型处理所引起的问题，在有可能的情况下，它甚至可以为了得到最大的吞吐量而使用系统级的工具。 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12 &hellip;">
+  <meta name="description" content="J2SE1.4中引入了新I/O库(NIO)来解决这个问题。NIO使用面向缓冲(buffer)的模型。这就是说，NIO主要处理大块的数据。这就避免了利用流模型处理所引起的问题，在有可能的情况下，它甚至可以为了得到最大的吞吐量而使用系统级的工具。 {% codeblock lang:java %} &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -118,237 +107,129 @@
 <!--more-->
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import java.io.IOException;
-</span><span class='line'>import java.net.InetSocketAddress;
-</span><span class='line'>import java.net.ServerSocket;
-</span><span class='line'>import java.net.Socket;
-</span><span class='line'>import java.nio.ByteBuffer;
-</span><span class='line'>import java.nio.channels.*;
-</span><span class='line'>import java.util.Set;
-</span><span class='line'>
-</span><span class='line'>public class TestChannel {
-</span><span class='line'>    public static void main(String args[]) throws IOException{
-</span><span class='line'>        TestChannel tt=new TestChannel();
-</span><span class='line'>        //tt.initServerChannel(992);
-</span><span class='line'>        tt.initSelector(992);
-</span><span class='line'>    }
-</span><span class='line'>
-</span><span class='line'>    //最初的java  socket实现方式，直接通过serversocket和socket通信
-</span><span class='line'>    public void initServerSocket(int port) throws IOException{
-</span><span class='line'>        ServerSocketChannel ssc=ServerSocketChannel.open();
-</span><span class='line'>        //ssc.configureBlocking(false);
-</span><span class='line'>        ServerSocket ss=new ServerSocket(port);
-</span><span class='line'>        while(true){
-</span><span class='line'>            Socket socket=ss.accept();
-</span><span class='line'>                System.out.println(&quot;socket accepted&quot;);
-</span><span class='line'>                byte[] buf=new byte[1024];
-</span><span class='line'>                try{
-</span><span class='line'>                socket.getInputStream().read(buf);
-</span><span class='line'>                }
-</span><span class='line'>                catch(Exception ex){
-</span><span class='line'>                    socket.close();
-</span><span class='line'>                }
-</span><span class='line'>                System.out.println(new String(buf));
-</span><span class='line'>
-</span><span class='line'>        }
-</span><span class='line'>    }
-</span><span class='line'>    //通过Channel实现的non-blocking通信方式
-</span><span class='line'>    public void initServerChannel(int port) throws IOException{
-</span><span class='line'>        ServerSocketChannel ssc=ServerSocketChannel.open();
-</span><span class='line'>        ssc.configureBlocking(false);
-</span><span class='line'>        ServerSocket ss=ssc.socket();
-</span><span class='line'>        ss.bind(new InetSocketAddress(port));
-</span><span class='line'>        while(true){
-</span><span class='line'>            SocketChannel sc=ssc.accept();
-</span><span class='line'>            if(sc!=null){
-</span><span class='line'>                Socket socket=sc.socket();
-</span><span class='line'>                System.out.println(&quot;socket accepted&quot;);
-</span><span class='line'>                byte[] buf=new byte[1024];
-</span><span class='line'>                try{
-</span><span class='line'>                socket.getInputStream().read(buf);
-</span><span class='line'>                }
-</span><span class='line'>                catch(Exception ex){
-</span><span class='line'>                    socket.close();
-</span><span class='line'>                }
-</span><span class='line'>                System.out.println(new String(buf));
-</span><span class='line'>            }
-</span><span class='line'>        }
-</span><span class='line'>    }
-</span><span class='line'>    //通过selector和channel进行multiplexed通信,像mina就是通过这种方式实现的
-</span><span class='line'>    public void initSelector(int port) throws IOException{
-</span><span class='line'>        Selector selector=Selector.open();
-</span><span class='line'>        //register server channel
-</span><span class='line'>        ServerSocketChannel ssc=ServerSocketChannel.open();
-</span><span class='line'>        ssc.configureBlocking(false);
-</span><span class='line'>        ServerSocket ss=ssc.socket();
-</span><span class='line'>        ss.bind(new InetSocketAddress(port));
-</span><span class='line'>        ssc.register(selector, SelectionKey.OP_ACCEPT);
-</span><span class='line'>        while(true){
-</span><span class='line'>            int interestNo=selector.select();
-</span><span class='line'>            if(interestNo==0)
-</span><span class='line'>                continue;
-</span><span class='line'>            Set keys=selector.selectedKeys();
-</span><span class='line'>            for(SelectionKey key:keys){
-</span><span class='line'>                //接受Socket连接请求
-</span><span class='line'>                if(key.isAcceptable()){
-</span><span class='line'>                    SocketChannel sc=ssc.accept();
-</span><span class='line'>                    try{
-</span><span class='line'>                    sc.configureBlocking(false);
-</span><span class='line'>                    sc.register(selector, SelectionKey.OP_READ);
-</span><span class='line'>                    }
-</span><span class='line'>                    catch(Exception ex){
-</span><span class='line'>                        sc.close();
-</span><span class='line'>                    }
-</span><span class='line'>                    System.out.println(&quot;connection accepted&quot;);
-</span><span class='line'>                    keys.remove(key);
-</span><span class='line'>                }
-</span><span class='line'>                else if(key.isReadable()){
-</span><span class='line'>                    SocketChannel sc=(SocketChannel)key.channel();
-</span><span class='line'>                    ByteBuffer bbuf=ByteBuffer.allocate(1024);
-</span><span class='line'>                    try{
-</span><span class='line'>                    sc.read(bbuf);
-</span><span class='line'>                    }
-</span><span class='line'>                    catch(Exception ex){
-</span><span class='line'>                        sc.close();
-</span><span class='line'>                    }
-</span><span class='line'>                    System.out.println(new String(bbuf.array()));
-</span><span class='line'>                    keys.remove(key);
-</span><span class='line'>                }
-</span><span class='line'>                else
-</span><span class='line'>                    keys.remove(key);
-</span><span class='line'>                    continue;
-</span><span class='line'>
-</span><span class='line'>                }
-</span><span class='line'>            }
-</span><span class='line'>        }
-</span><span class='line'>    }
-</span><span class='line'>// client:
-</span><span class='line'>
-</span><span class='line'>//Java代码
-</span><span class='line'>public class TestChannelClient {
-</span><span class='line'>public static void main(String args[]) throws UnknownHostException, IOException{
-</span><span class='line'>    Socket sc=new Socket(&quot;127.0.0.1&quot;,992);
-</span><span class='line'>    OutputStream out=sc.getOutputStream();
-</span><span class='line'>    out.write(&quot;hello&quot;.getBytes());
-</span><span class='line'>    out.flush();
-</span><span class='line'>}
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<p>{% codeblock lang:java %}
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.channels.*;
+import java.util.Set;</p>
 
+<p>public class TestChannel {</p>
+
+<pre><code>public static void main(String args[]) throws IOException{
+    TestChannel tt=new TestChannel();
+    //tt.initServerChannel(992);
+    tt.initSelector(992);
+}
+
+//最初的java  socket实现方式，直接通过serversocket和socket通信
+public void initServerSocket(int port) throws IOException{
+    ServerSocketChannel ssc=ServerSocketChannel.open();
+    //ssc.configureBlocking(false);
+    ServerSocket ss=new ServerSocket(port);
+    while(true){
+        Socket socket=ss.accept();
+            System.out.println(&amp;quot;socket accepted&amp;quot;);
+            byte[] buf=new byte[1024];
+            try{
+            socket.getInputStream().read(buf);
+            }
+            catch(Exception ex){
+                socket.close();
+            }
+            System.out.println(new String(buf));
+
+    }
+}
+//通过Channel实现的non-blocking通信方式
+public void initServerChannel(int port) throws IOException{
+    ServerSocketChannel ssc=ServerSocketChannel.open();
+    ssc.configureBlocking(false);
+    ServerSocket ss=ssc.socket();
+    ss.bind(new InetSocketAddress(port));
+    while(true){
+        SocketChannel sc=ssc.accept();
+        if(sc!=null){
+            Socket socket=sc.socket();
+            System.out.println(&amp;quot;socket accepted&amp;quot;);
+            byte[] buf=new byte[1024];
+            try{
+            socket.getInputStream().read(buf);
+            }
+            catch(Exception ex){
+                socket.close();
+            }
+            System.out.println(new String(buf));
+        }
+    }
+}
+//通过selector和channel进行multiplexed通信,像mina就是通过这种方式实现的
+public void initSelector(int port) throws IOException{
+    Selector selector=Selector.open();
+    //register server channel
+    ServerSocketChannel ssc=ServerSocketChannel.open();
+    ssc.configureBlocking(false);
+    ServerSocket ss=ssc.socket();
+    ss.bind(new InetSocketAddress(port));
+    ssc.register(selector, SelectionKey.OP_ACCEPT);
+    while(true){
+        int interestNo=selector.select();
+        if(interestNo==0)
+            continue;
+        Set keys=selector.selectedKeys();
+        for(SelectionKey key:keys){
+            //接受Socket连接请求
+            if(key.isAcceptable()){
+                SocketChannel sc=ssc.accept();
+                try{
+                sc.configureBlocking(false);
+                sc.register(selector, SelectionKey.OP_READ);
+                }
+                catch(Exception ex){
+                    sc.close();
+                }
+                System.out.println(&amp;quot;connection accepted&amp;quot;);
+                keys.remove(key);
+            }
+            else if(key.isReadable()){
+                SocketChannel sc=(SocketChannel)key.channel();
+                ByteBuffer bbuf=ByteBuffer.allocate(1024);
+                try{
+                sc.read(bbuf);
+                }
+                catch(Exception ex){
+                    sc.close();
+                }
+                System.out.println(new String(bbuf.array()));
+                keys.remove(key);
+            }
+            else
+                keys.remove(key);
+                continue;
+
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>// client:</p>
+
+<p>//Java代码
+public class TestChannelClient {
+public static void main(String args[]) throws UnknownHostException, IOException{</p>
+
+<pre><code>Socket sc=new Socket(&amp;quot;127.0.0.1&amp;quot;,992);
+OutputStream out=sc.getOutputStream();
+out.write(&amp;quot;hello&amp;quot;.getBytes());
+out.flush();
+</code></pre>
+
+<p>}
+}
+{% endcodeblock %}</p>
 </div>
 
 

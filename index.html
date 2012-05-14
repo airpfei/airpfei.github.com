@@ -382,57 +382,15 @@
 
 <p><span style="display:block;text-indent:2em;">打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、CreateConsoleScreenBuffer,GetFileType</span>
 <span style="display:block;text-indent:2em;">CreateFile 的高速缓存标志：FILE_FLAG_NO_BUFFERING(GetDiskFreeSpace扇区的整数倍)，FILE_FLAG_SEQUENTIAL_SCAN，FILE_FLAG_RANDOM_ACCESS，FILE_FLAG_WRITE_THROUGH</span>
-<span style="display:block;text-indent:2em;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>HANDLE hFile = CreateFile(...);
-</span><span class='line'>if (hFile == NULL) {
-</span><span class='line'>   // We'll never get in here
-</span><span class='line'>} else {
-</span><span class='line'>   // File might or might not be created OK
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>//Here's the correct way to check for an invalid file handle:
-</span><span class='line'>HANDLE hFile = CreateFile(...);
-</span><span class='line'>if (hFile == INVALID_HANDLE_VALUE) {
-</span><span class='line'>   // File not created
-</span><span class='line'>} else {
-</span><span class='line'>   // File created OK
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile</span>
-<span style="display:block;text-indent:2em;">执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo</span>
-<span style="display:block;text-indent:2em;">异步：OVERLAPPED结构、CancelIoEx</span>
-<span style="display:block;text-indent:2em;">可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx</span>
-<span style="display:block;text-indent:2em;">I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//为了只创建I/O完成端口，只需要设置第四个参数。dwNumberOfConcurrentThreads (并发线程数量) = 0，系统默认为CPU的数量
-</span><span class='line'>HANDLE CreateNewCompletionPort(DWORD dwNumberOfConcurrentThreads) {
-</span><span class='line'>   return(CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0,
-</span><span class='line'>      dwNumberOfConcurrentThreads));
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
+<span style="display:block;text-indent:2em;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span>
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+&lt;span style="display:block;text-indent:2em;"&gt;GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;异步：OVERLAPPED结构、CancelIoEx&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus&lt;/span&gt;
+Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module
+<span style="display:block;text-indent:2em;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
 
 </div>
   
@@ -685,78 +643,13 @@
 <span style="display:block;text-indent:2em;">(w)WinMain的hInstanceExe参数是可执行文件的映像加载到内存的基址；</span>
 <span style="display:block;text-indent:2em;">HMODULE和HINSTANCE是一样的，由于win16导致函数名不同；</span>
 <span style="display:block;text-indent:2em;">__ImageBase连接器提供的伪变量，指向当前运行模块的基地址</span>
-span style=&#8221;display:block;text-indent:2em;&#8221;>GetModuleHandle(NULL)返回进程地址空间中可执行文件的基地址，而非DLL的基地址</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//使用HeapFree释放内存
-</span><span class='line'>PWSTR *ppArgv = CommandLineToArgvW(GetCommandLineW(), &amp;nNumArgs);
-</span><span class='line'>// Use the arguments…
-</span><span class='line'>if (*ppArgv[1] == L'x') {
-</span><span class='line'>   ...
-</span><span class='line'>}
-</span><span class='line'>// Free the memory block
-</span><span class='line'>HeapFree(GetProcessHeap(), 0, ppArgv);</span></code></pre></td></tr></table></div></figure>
-
-
-<p><span style="display:block;text-indent:2em;">GetEnvironmentStrings、FreeEnvironmentStrings，环境变量，读注册表HKEY_CURRENT_USER_ENVIRONMENT</span>
-<span style="display:block;text-indent:2em;">SetErrorMode告诉系统如何处理错误</span>
-<span style="display:block;text-indent:2em;">目录名、文件名MAX_PATH=260</span>
-<span style="display:block;text-indent:2em;">GetCurrrentDirectory、SetCurrentDirectory、GetFullPathName</span></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PROCESS_INFORMATION pi;
-</span><span class='line'>DWORD dwExitCode;
-</span><span class='line'>// Spawn the child process.
-</span><span class='line'>BOOL fSuccess = CreateProcess(..., &amp;pi);
-</span><span class='line'>if (fSuccess) {
-</span><span class='line'>   // Close the thread handle as soon as it is no longer needed!
-</span><span class='line'>   //！！！递减子进程的主线程内核对象使用计数。使系统能够正常释放子进程
-</span><span class='line'>   CloseHandle(pi.hThread);
-</span><span class='line'>   // Suspend our execution until the child has terminated.
-</span><span class='line'>   WaitForSingleObject(pi.hProcess, INFINITE);
-</span><span class='line'>   // The child process terminated; get its exit code.
-</span><span class='line'>   GetExitCodeProcess(pi.hProcess, &amp;dwExitCode);
-</span><span class='line'>   // Close the process handle as soon as it is no longer needed.
-</span><span class='line'>   CloseHandle(pi.hProcess);
-</span><span class='line'>}
-</span><span class='line'>// 运行独立的子进程
-</span><span class='line'>BOOL fSuccess = CreateProcess(..., &amp;pi);
-</span><span class='line'>if (fSuccess) {
-</span><span class='line'>   // Allow the system to destroy the process &amp; thread kernel
-</span><span class='line'>   // objects as soon as the child process terminates.
-</span><span class='line'>   CloseHandle(pi.hThread);
-</span><span class='line'>   CloseHandle(pi.hProcess);
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
+span style=&#8221;display:block;text-indent:2em;&#8221;>GetModuleHandle(NULL)返回进程地址空间中可执行文件的基地址，而非DLL的基地址</span>
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+&lt;span style="display:block;text-indent:2em;"&gt;GetEnvironmentStrings、FreeEnvironmentStrings，环境变量，读注册表HKEY_CURRENT_USER_ENVIRONMENT&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;SetErrorMode告诉系统如何处理错误&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;目录名、文件名MAX_PATH=260&lt;/span&gt;
+&lt;span style="display:block;text-indent:2em;"&gt;GetCurrrentDirectory、SetCurrentDirectory、GetFullPathName&lt;/span&gt;
+Liquid error: undefined method</code>Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 </div>
   

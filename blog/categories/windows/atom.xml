@@ -4,7 +4,7 @@
   <title><![CDATA[Category: windows | Blog Of Peng Fei]]></title>
   <link href="http://airpfei.github.com/blog/categories/windows/atom.xml" rel="self"/>
   <link href="http://airpfei.github.com/"/>
-  <updated>2012-05-14T23:38:06+08:00</updated>
+  <updated>2012-05-15T00:29:44+08:00</updated>
   <id>http://airpfei.github.com/</id>
   <author>
     <name><![CDATA[Peng Fei]]></name>
@@ -145,37 +145,13 @@
 <p><span style="display:block;text-indent:2em;">打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、CreateConsoleScreenBuffer,GetFileType</span>
 <span style="display:block;text-indent:2em;">CreateFile 的高速缓存标志：FILE_FLAG_NO_BUFFERING(GetDiskFreeSpace扇区的整数倍)，FILE_FLAG_SEQUENTIAL_SCAN，FILE_FLAG_RANDOM_ACCESS，FILE_FLAG_WRITE_THROUGH</span>
 <span style="display:block;text-indent:2em;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span>
-```
-HANDLE hFile = CreateFile(...);
-if (hFile == NULL) {
-   // We'll never get in here
-} else {
-   // File might or might not be created OK
-}</p>
-
-<p>//Here's the correct way to check for an invalid file handle:
-HANDLE hFile = CreateFile(...);
-if (hFile == INVALID_HANDLE_VALUE) {
-   // File not created
-} else {
-   // File created OK
-}
-<code>
-&lt;span style="display:block;text-indent:2em;"&gt;GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile&lt;/span&gt;
-&lt;span style="display:block;text-indent:2em;"&gt;执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo&lt;/span&gt;
-&lt;span style="display:block;text-indent:2em;"&gt;异步：OVERLAPPED结构、CancelIoEx&lt;/span&gt;
-&lt;span style="display:block;text-indent:2em;"&gt;可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx&lt;/span&gt;
-&lt;span style="display:block;text-indent:2em;"&gt;I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus&lt;/span&gt;
-</code>
-//为了只创建I/O完成端口，只需要设置第四个参数。dwNumberOfConcurrentThreads (并发线程数量) = 0，系统默认为CPU的数量
-HANDLE CreateNewCompletionPort(DWORD dwNumberOfConcurrentThreads) {
-   return(CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0,</p>
-
-<pre><code>  dwNumberOfConcurrentThreads));
-</code></pre>
-
-<p>}
-```
+Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+<span style="display:block;text-indent:2em;">GetFileSizeEx、GetCompressedFileSize、SetFilePointerEx、SetEndOfFile</span>
+<span style="display:block;text-indent:2em;">执行同步设备I/O：ReadFile、WriteFile、FlushFileBuffers、CancelSynchronousIo</span>
+<span style="display:block;text-indent:2em;">异步：OVERLAPPED结构、CancelIoEx</span>
+<span style="display:block;text-indent:2em;">可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx</span>
+<span style="display:block;text-indent:2em;">I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus</span>
+Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
 <span style="display:block;text-indent:2em;">FILE_FLAG_NO_BUFFERING标志要求：缓存的起始位置必须是扇区大小的整数倍，VirtualAlloc函数可以确保内存块的起始位置位于分配粒度的边界</span></p>
 
 <!--more-->
@@ -327,32 +303,11 @@ HANDLE CreateNewCompletionPort(DWORD dwNumberOfConcurrentThreads) {
 
 
 <p><span style="display:block;text-indent:2em;">WaitForSingleObject、WaitForMultipleObjects，内核对象被触发返回。等待成功引起的副作用，由于事件对象触发时，在返回WAIT_OBJECT_0前会使对象变为非触发状态</span>
-<code>
-HANDLE h[2];
-h[0] = hAutoResetEvent1;   // Initially nonsignaled
-h[1] = hAutoResetEvent2;   // Initially nonsignaled
-WaitForMultipleObjects(2, h, TRUE, INFINITE);
-</code>
+Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
 <span style="display:block;text-indent:2em;">hAutoResetEvent1先触发，hAutoResetEvent2触发，两线程的一个检测到触发，系统把两个事件对象都设为未触发</span>
 <span style="display:block;text-indent:2em;">事件内核对象：CreateEvent(Ex)、SetEvent、ResetEvent、PulseEvent(不经常使用)、OpenEvent(DuplicateHandle)。使用自动重置的对象，当对象被触发，系统只会让次要线程中的一个变为可调度状态，所以要在每个次要线程调用时使用SetEvent，否则其他次要线程将等待。</span>
 <span style="display:block;text-indent:2em;">可等待的计时器内核对象：CreateWaitableTimer、SetWaitableTimer、CancelWaitableTimer、OpenWaitableTimer</span>
-```
-void SomeFunc() {
-   // Create a timer. (It doesn't matter whether it's manual-reset
-   // or auto-reset.)
-   HANDLE hTimer = CreateWaitableTimer(NULL, TRUE, NULL);</p>
-
-<p>   // Set timer to go off in 5 seconds.
-   LARGE_INTEGER li = { 0 };
-   SetWaitableTimer(hTimer, &amp;li, 5000, TimerAPCRoutine, NULL, FALSE);</p>
-
-<p>   //APC异步函数被插入线程，线程恢复
-   // Wait in an alertable state for the timer to go off.
-   SleepEx(INFINITE, TRUE);</p>
-
-<p>   CloseHandle(hTimer);
-}
-```
+Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
 <span style="display:block;text-indent:2em;">信号量内核对象：CreateSemaphore、OpenSemaphore、ReleaseSemaphore</span>
 <span style="display:block;text-indent:2em;">互斥量内核对象：CreateMutex、OpenMutex、RleaseMutex</span>
 <span style="display:block;text-indent:2em;">WaitForInputIdle、MsgWaitForMultipleObjects(Ex)(用户界面相关的线程使用)、WaitForDebugEvent、SignalObjectAndWait(通过原子操作让一个内核对象等待另一个内核对象)</span>
