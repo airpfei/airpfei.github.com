@@ -9,7 +9,7 @@ categories: [tech, windows]
 <span style="display:block;text-indent:2em;">打开设备：CreateFile(文件、目录、逻辑磁盘驱动器、物理磁盘驱动器、串口、并口、邮件槽[一对多数据传输]客户端、命名管道[一对一数据传输]客户端)、CreateMailslot、CreateNamedPipe、CreatePipe、Socket、CreateConsoleScreenBuffer,GetFileType</span>
 <span style="display:block;text-indent:2em;">CreateFile 的高速缓存标志：FILE_FLAG_NO_BUFFERING(GetDiskFreeSpace扇区的整数倍)，FILE_FLAG_SEQUENTIAL_SCAN，FILE_FLAG_RANDOM_ACCESS，FILE_FLAG_WRITE_THROUGH</span>
 <span style="display:block;text-indent:2em;">FILE_FLAG_DELETE_ON_CLOSE、FILE_FLAG_BACKUP_SEMANTICS、FILE_FLAG_OPEN_REPARSE_POINT、FILE_FLAG_OPEN_NO_RECALL、FILE_FLAG_OVERLAPPED</span>
-``` cpp
+```
 HANDLE hFile = CreateFile(...);
 if (hFile == NULL) {
    // We'll never get in here
@@ -30,7 +30,7 @@ if (hFile == INVALID_HANDLE_VALUE) {
 <span style="display:block;text-indent:2em;">异步：OVERLAPPED结构、CancelIoEx</span>
 <span style="display:block;text-indent:2em;">可提醒I/O：QueueUserApc(手动将一项添加到APC队列)、SleepEx、WaitForSingleObjectEx、WaitForMultipleObjectsEx、SignalObjectAndWait、GetQueuedCompletionStatusEx、MsgWaitForMultipleObjectsEx</span>
 <span style="display:block;text-indent:2em;">I/O完成端口：CreateCompletionPort、GetQueuedCompletionStatus、PostQueuedCompletionStatus</span>
-``` cpp
+```
 //为了只创建I/O完成端口，只需要设置第四个参数。dwNumberOfConcurrentThreads (并发线程数量) = 0，系统默认为CPU的数量
 HANDLE CreateNewCompletionPort(DWORD dwNumberOfConcurrentThreads) {
    return(CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0,

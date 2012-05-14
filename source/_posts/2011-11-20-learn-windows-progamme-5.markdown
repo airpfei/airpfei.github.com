@@ -120,7 +120,7 @@ categories: [tech, windows]
 <h2>第9章：用内核对象进行线程同步</h2>
 
 <span style="display:block;text-indent:2em;">WaitForSingleObject、WaitForMultipleObjects，内核对象被触发返回。等待成功引起的副作用，由于事件对象触发时，在返回WAIT_OBJECT_0前会使对象变为非触发状态</span>
-``` cpp
+```
 HANDLE h[2];
 h[0] = hAutoResetEvent1;   // Initially nonsignaled
 h[1] = hAutoResetEvent2;   // Initially nonsignaled
@@ -129,7 +129,7 @@ WaitForMultipleObjects(2, h, TRUE, INFINITE);
 <span style="display:block;text-indent:2em;">hAutoResetEvent1先触发，hAutoResetEvent2触发，两线程的一个检测到触发，系统把两个事件对象都设为未触发</span>
 <span style="display:block;text-indent:2em;">事件内核对象：CreateEvent(Ex)、SetEvent、ResetEvent、PulseEvent(不经常使用)、OpenEvent(DuplicateHandle)。使用自动重置的对象，当对象被触发，系统只会让次要线程中的一个变为可调度状态，所以要在每个次要线程调用时使用SetEvent，否则其他次要线程将等待。</span>
 <span style="display:block;text-indent:2em;">可等待的计时器内核对象：CreateWaitableTimer、SetWaitableTimer、CancelWaitableTimer、OpenWaitableTimer</span>
-``` cpp
+```
 void SomeFunc() {
    // Create a timer. (It doesn't matter whether it's manual-reset
    // or auto-reset.)

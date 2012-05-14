@@ -11,7 +11,7 @@ categories: [tech, windows]
 <span style="display:block;text-indent:2em;">HMODULE和HINSTANCE是一样的，由于win16导致函数名不同；</span>
 <span style="display:block;text-indent:2em;">__ImageBase连接器提供的伪变量，指向当前运行模块的基地址</span>
 span style="display:block;text-indent:2em;">GetModuleHandle(NULL)返回进程地址空间中可执行文件的基地址，而非DLL的基地址</span>
-``` cpp
+```
 //使用HeapFree释放内存
 PWSTR *ppArgv = CommandLineToArgvW(GetCommandLineW(), &amp;nNumArgs);
 // Use the arguments…
@@ -25,7 +25,7 @@ HeapFree(GetProcessHeap(), 0, ppArgv);
 <span style="display:block;text-indent:2em;">SetErrorMode告诉系统如何处理错误</span>
 <span style="display:block;text-indent:2em;">目录名、文件名MAX_PATH=260</span>
 <span style="display:block;text-indent:2em;">GetCurrrentDirectory、SetCurrentDirectory、GetFullPathName</span>
-``` cpp
+```
 PROCESS_INFORMATION pi;
 DWORD dwExitCode;
 // Spawn the child process.
