@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试 JS <-> Native 交互</title>
+<script type="text/javascript">
+function share() {
+  if (window.MeikeNativeJSBridge) {
+    window.MeikeNativeJSBridge.callNative('wechatShare', '{"title":"title","desc":"desc","link":"http://www.baidu.com"}', function(responseData) {
+        //创建textNode
+        var txt = document.createTextNode("wechatShare");
+        var p = document.createElement("p");
+        //加文本以子节点形式加入到P元素中
+        p.appendChild(txt);
+        //将上面创建的P元素加入到BODY的尾部
+        document.appendChild(p);
+    });
+  }
+}
+
+function openBaidu() {
+  if (window.MeikeNativeJSBridge) {
+    window.MeikeNativeJSBridge.callNative('jumpUrl', 'http://www.baidu.com', function(responseData) {
+        //创建textNode
+        var txt = document.createTextNode("jumpUrl");
+        var p = document.createElement("p");
+        //加文本以子节点形式加入到P元素中
+        p.appendChild(txt);
+        //将上面创建的P元素加入到BODY的尾部
+        document.appendChild(p);
+    });
+  }
+}
+
+function getCoupon() {
+  if (window.MeikeNativeJSBridge) {
+    window.MeikeNativeJSBridge.callNative('getCoupon', '336d17c5-709e-4615-83c1-c0ac59a125b9', function(responseData) {
+        //创建textNode
+        var txt = document.createTextNode("getCoupon");
+        var p = document.createElement("p");
+        //加文本以子节点形式加入到P元素中
+        p.appendChild(txt);
+        //将上面创建的P元素加入到BODY的尾部
+        document.appendChild(p);
+    });
+  }
+}
+
+window.MeikeNativeJSBridge.registerHandler('native', function(data, responseCallback) {
+  responseCallback(data);
+});
+</script>
+</head>
+<body>
+    <button type="button" onclick="share()">share!</button>
+    <button type="button" onclick="openBaidu()">open baidu!</button>
+    <button type="button" onclick="getCoupon()">get coupon!</button>
+</body>
+</html>
