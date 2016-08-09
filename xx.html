@@ -6,7 +6,7 @@
 <script type="text/javascript">
 function share() {
   if (window.MeikeNativeJSBridge) {
-    window.MeikeNativeJSBridge.callNative('wechatShare', '{"title":"title","desc":"desc","link":"http://www.baidu.com"}', function(responseData) {
+    window.MeikeNativeJSBridge.callNative('wechatShare', '{"title":"title","desc":"desc","link":"http://www.baidu.com","imgUrl":"http://img.wdjimg.com/mms/icon/v1/c/1c/ea8a4e44a10327cc8d56ebcfe44c41cc_68_68.png"}', function(responseData) {
         //创建textNode
         var txt = document.createTextNode("wechatShare");
         var p = document.createElement("p");
