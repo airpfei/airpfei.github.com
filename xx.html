@@ -5,24 +5,24 @@
 <title>测试 JS <-> Native 交互</title>
 <script type="text/javascript">
 function share() {
-  if (window.MeikeNativeJSBridge) {
-    window.MeikeNativeJSBridge.callNative('wechatShare', '{"title":"title","desc":"desc","link":"http://www.baidu.com","imgUrl":"http://img.wdjimg.com/mms/icon/v1/c/1c/ea8a4e44a10327cc8d56ebcfe44c41cc_68_68.png"}', function(responseData) {
+  if (window.MeikeCampaignTools) {
+    window.MeikeCampaignTools.wechatShare({"title":"title","desc":"desc","link":"http://www.baidu.com","imgUrl":"http://img.wdjimg.com/mms/icon/v1/c/1c/ea8a4e44a10327cc8d56ebcfe44c41cc_68_68.png"}, function(responseData) {
         document.querySelector('#abc').innerHTML = "wechatShare";
     });
   }
 }
 
 function openBaidu() {
-  if (window.MeikeNativeJSBridge) {
-    window.MeikeNativeJSBridge.callNative('jumpUrl', 'http://www.baidu.com', function(responseData) {
+  if (window.MeikeCampaignTools) {
+    window.MeikeCampaignTools.jumpUrl('http://www.baidu.com', function(responseData) {
         document.querySelector('#abc').innerHTML = "jumpUrl";
     });
   }
 }
 
 function getCoupon() {
-  if (window.MeikeNativeJSBridge) {
-    window.MeikeNativeJSBridge.callNative('getCoupon', '336d17c5-709e-4615-83c1-c0ac59a125b9', function(responseData) {
+  if (window.MeikeCampaignTools) {
+    window.MeikeCampaignTools.getCoupon('336d17c5-709e-4615-83c1-c0ac59a125b9', function(responseData) {
         //创建textNode
         document.querySelector('#abc').innerHTML = "getCoupon";
     });
