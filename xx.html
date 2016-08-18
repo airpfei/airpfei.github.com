@@ -4,15 +4,24 @@
 <meta charset="utf-8">
 <title>测试 JS <-> Native 交互</title>
 <script type="text/javascript">
+
 function share() {
   if (window.MeikeCampaignTools) {
-    window.MeikeCampaignTools.wechatShare({"title":"title","desc":"desc","link":"http://www.baidu.com","imgUrl":"http://img.wdjimg.com/mms/icon/v1/c/1c/ea8a4e44a10327cc8d56ebcfe44c41cc_68_68.png", 'success':function() {
+    window.MeikeCampaignTools.share();
+  }
+}
+
+function setShare() {
+  if (window.MeikeCampaignTools) {
+    window.MeikeCampaignTools.setWechatShare({"title":"title","desc":"desc","link":"http://www.baidu.com","imgUrl":"http://img.wdjimg.com/mms/icon/v1/c/1c/ea8a4e44a10327cc8d56ebcfe44c41cc_68_68.png", 'success':function() {
       document.querySelector('#abc').innerHTML = "share success";
     }, 'cancel':function() {
       document.querySelector('#abc').innerHTML = "share cancel";
     } });
   }
 }
+
+setShare();
 
 function openBaidu() {
   if (window.MeikeCampaignTools) {
